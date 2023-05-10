@@ -32,7 +32,7 @@
 <AppShell slotSidebarLeft="bg-surface-500/5 {classesSidebarLeft}">
 	<svelte:fragment slot="header">
 		<!-- App Bar -->
-		<AppBar>
+		<AppBar class="drop-shadow-[0_1.2px_2.2px_rgba(0,0,0,0.8)]">
 			<svelte:fragment slot="lead">
 				<div class="flex items-center">
 					<button class="lg:hidden btn btn-sm mr-4" on:click={drawerOpen}>

@@ -1,11 +1,13 @@
 <script lang="ts">
 </script>
 
-<body>
+<body class="flex flex-col">
 	<section>
-		<div class="card">
+		<div class="">
 			<div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
-				<header class=" bg-white card-header text-center">
+				<header
+					class=" bg-white card-header text-center rounded-sm drop-shadow-[0_1.2px_6.2px_rgba(0,0,0,0.8)]"
+				>
 					<h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Taste the difference</h2>
 
 					<p class="max-w-md mx-auto mt-4 text-gray-500 py-4">
@@ -20,7 +22,7 @@
 							<img
 								src="https://privatarum.com/wp-content/uploads/2017/04/Matskola.jpg"
 								alt=""
-								class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
+								class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90 rounded-sm drop-shadow-[0_1.2px_4.2px_rgba(0,0,0,0.8)]"
 							/>
 
 							<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
@@ -44,7 +46,7 @@
 							<img
 								src="https://media1.thornstroms.nu/2021/03/ju-godare-mat-desto-godare-liv-thornstroms.jpg"
 								alt=""
-								class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
+								class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90 rounded-sm drop-shadow-[0_1.2px_4.2px_rgba(0,0,0,0.8)]"
 							/>
 
 							<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
@@ -68,7 +70,7 @@
 							<img
 								src="https://media1.thornstroms.nu/2021/03/thornstrom-matskola.jpg"
 								alt=""
-								class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
+								class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90 rounded-sm drop-shadow-[0_1.2px_4.2px_rgba(0,0,0,0.8)]"
 							/>
 
 							<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
@@ -91,12 +93,12 @@
 		</div>
 	</section>
 
-	<div class="card p-4">
-		<div class="bg-white">
+	<div class="p-4">
+		<div class="rounded-md drop-shadow-[0_1.2px_6.2px_rgba(0,0,0,0.8)] bg-white">
 			<div
-				class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8"
+				class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 md:py-16 lg:py-16 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8"
 			>
-				<div>
+				<div class="py-8">
 					<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
 						Experience authenticity
 					</h2>
