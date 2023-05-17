@@ -6,7 +6,7 @@
 	import { Drawer, drawerStore } from '@skeletonlabs/skeleton';
 
 	// Local Features
-	import Navigation from '$lib/Navigation/Navigation.svelte';
+	import Navigation from '$lib/Navigation/components/Navigation.svelte';
 
 	// Stylesheets
 	import '../theme.css';
@@ -23,13 +23,13 @@
 
 <!-- Drawer -->
 <Drawer>
-	<h2 class="p-4">Navigation</h2>
+	<h2 class="p-4">Iron Chef</h2>
 	<hr />
 	<Navigation />
 </Drawer>
 
 <!-- App Shell -->
-<AppShell slotSidebarLeft="bg-surface-500/5 {classesSidebarLeft}">
+<AppShell slotSidebarLeft="bg-surface-500/50 {classesSidebarLeft}">
 	<svelte:fragment slot="header">
 		<!-- App Bar -->
 		<AppBar class="drop-shadow-[0_1.2px_2.2px_rgba(0,0,0,0.8)]">
@@ -48,14 +48,12 @@
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a class="btn btn-sm" href="/">Home</a>
-				<a class="btn btn-sm" href="/about">About</a>
+				<a class="btn btn-sm text-lg" href="/">Home</a>
+				<a class="btn btn-sm text-lg" href="/menu">Menu</a>
+				<a class="btn btn-sm text-lg" href="/reservation">Reserve a Table</a>
+				<a class="btn btn-sm text-lg" href="/lessons">Cooking Lessons</a>
 			</svelte:fragment>
 		</AppBar>
-	</svelte:fragment>
-	<!-- Left Sidebar Slot -->
-	<svelte:fragment slot="sidebarLeft">
-		<Navigation />
 	</svelte:fragment>
 	<!-- Page Route Content -->
 	<slot />
