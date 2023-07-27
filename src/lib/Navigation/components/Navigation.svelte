@@ -8,9 +8,9 @@
 
 <nav class="list-nav p-4">
 	<ul>
-		<li><a href="/" on:click={drawerClose}>Home</a></li>
-		<li><a href="/about" on:click={drawerClose}>Menu</a></li>
-		<li><a href="/blog" on:click={drawerClose}>Reserve a Table</a></li>
-		<li><a href="/contact" on:click={drawerClose}>Cooking Lessons</a></li>
+		<li><a href="/" on:click={drawerClose}>Hem</a></li>
+		<li><a href="/uthyrning" on:click={drawerClose}>Uthyrning</a></li>
+		<li><a href="/omOss" on:click={drawerClose}>Om oss</a></li>
+		<li><a href="/stenberga" on:click={drawerClose}>Stenberga Missionsförsamling</a></li>
 	</ul>
 </nav>

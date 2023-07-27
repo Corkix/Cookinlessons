@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import logo from '$lib/images/hagalogo1.png';
+	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
 
 	// Skeleton Features
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
@@ -23,7 +25,12 @@
 
 <!-- Drawer -->
 <Drawer>
-	<h2 class="p-4">Iron Chef</h2>
+	<div class="flex">
+		<div class="btn btn-sm">
+			<img src={logo} alt="" />
+		</div>
+		<h2 class="p-4">Hagablänket</h2>
+	</div>
 	<hr />
 	<Navigation />
 </Drawer>
@@ -44,14 +51,18 @@
 							</svg>
 						</span>
 					</button>
-					<strong class="text-xl uppercase">Iron chef</strong>
+					<div class="btn btn-sm justify-end">
+						<img src={logo} alt="" />
+					</div>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a class="btn btn-sm text-lg" href="/">Home</a>
-				<a class="btn btn-sm text-lg" href="/menu">Menu</a>
-				<a class="btn btn-sm text-lg" href="/reservation">Reserve a Table</a>
-				<a class="btn btn-sm text-lg" href="/lessons">Cooking Lessons</a>
+				<div class="max-sm:hidden">
+					<a class="btn btn-sm text-lg" href="/">Hem</a>
+					<a class="btn btn-sm text-lg" href="/uthyrning">Uthyrning</a>
+					<a class="btn btn-sm text-lg" href="/omOss">Om oss</a>
+					<a class="btn btn-sm text-lg" href="/stenberga">Stenberga Missonsförsamiling</a>
+				</div>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>

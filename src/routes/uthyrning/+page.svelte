@@ -3,12 +3,12 @@
 		<ol class="breadcrumb">
 			<li class="crumb">Home</li>
 			<li class="crumb-separator" aria-hidden>/</li>
-			<li>Menu</li>
+			<li>Uthyrning</li>
 		</ol>
 	</div>
 
 	<div class="container px-10 py-7 space-y-6">
-		<h2>Menu</h2>
+		<h2>Reserve a Table</h2>
 	</div>
 
 	<div class="px-8 pd-4">
@@ -18,12 +18,13 @@
 			>
 				<div class="py-2">
 					<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-						The Chef of the Season
+						Learn to cook with confidence
 					</h2>
 					<p class="mt-4 text-gray-800">
-						The Iron Chef is honored to be led this summer season by non other then The Gordon
-						Ramsey, and we can guarantee that Menu and the experience you will have with us is
-						something you won't forget soon.
+						The Iron Chef is precision milled team to perfectly fit you and your needs to grow in
+						the kitchen. The love, dedication to the trade and to each other is the divider that
+						separates us from any ones that you could imagne to compare us to, and we can guarantee
+						that the experience you will have with us is something you won't forget soon.
 					</p>
 
 					<dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
@@ -57,31 +58,17 @@
 					</dl>
 					<div class="pt-8">
 						<p class="mt-4 text-black">
-							Check out the menu here!
-							<a
-								href="https://thebarn.se/wp-content/uploads/2023/05/The_Barn_Allehanda_2023-webb.pdf"
-								>https://thebarn.se/wp-content/uploads/2023/05/The_Barn_Allehanda_2023-webb.pdf</a
-							>
+							Come and learn with us!
+							<a href="https://thornstroms.nu/sv/boka/">https://thornstroms.nu/sv/boka/</a>
 							<br />
-							<br />
-							Gordon is also part of our Cooking Lessons, check out this free lesson!
+							We guarantee that the experience you will have with us is something you won't forget soon.
 						</p>
-						<div class="pt-2">
-							<iframe
-								width="560"
-								height="315"
-								src="https://www.youtube.com/embed/ulhRORJpuBM"
-								title="YouTube video player"
-								frameborder="0"
-								allowfullscreen
-							/>
-						</div>
 					</div>
 				</div>
 				<div class="flex justify-end px-4">
 					<img
-						src="https://parade.com/.image/t_share/MTkyMzM2MjcwMzU2MTk0NTQ2/gordon-ramsay-restaurants.jpg"
-						alt="Gordon Ramsey posing."
+						src="https://media1.thornstroms.nu/2021/03/Thornstroms-mat-om-oss.jpg"
+						alt="A woman and a man in aprons talking."
 						class="rounded-lg text-white bg-gray-100"
 					/>
 				</div>
