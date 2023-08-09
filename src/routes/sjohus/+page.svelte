@@ -50,13 +50,126 @@
 			<!-- Hero -->
 			<section class="bg-gray-50">
 				<div class="">
-					<img alt="Bild på Sjömagasinet med sin gula dörr" src={hero2} class="w-full h-full" />
+					<img alt="Bild på Skogslunget med sin vita dörr" src={hero2} class="w-full h-full" />
 				</div>
 			</section>
 			<!-- End of Hero -->
 			<div class="flex p-2 lg:items-center lg:justify-between">
 				<div class="flex-1">
 					<!-- fist section  -->
+					<section>
+						<div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-18 lg:px-8">
+							<div class="grid sm:grid-flow-row md:grid-flow-row lg:grid-flow-col">
+								<div class="lg:py-2 p-2">
+									<div class="max-w-3xl py-4">
+										<h2 class="text-3xl font-bold sm:text-4xl">Sjömagasinet</h2>
+									</div>
+									<article class="space-y-4">
+										<p>
+											Sjömagasinet är ett precis nybyggt hus med sjöutsikt och näst intill
+											strandtomt. Där finns 10+3 bäddar och bara 100 meter från huset finns
+											möjlighet till båt, bad och fiske. Ibland färgar solnedgången himlen och
+											vattnet i skiftande färger.
+										</p>
+
+										<p>
+											På bottenvåningen finns fullutrustat kök/allrum med sjöutsikt, matbord och
+											soffor samt utgång mot sjön. Det vackra sovrummet har också en altandörr och
+											vacker sjöutsikt samt plats för en barnsäng vid behov. Stort badrum med dusch
+											precis intill och altandörr även därifrån.
+										</p>
+
+										<p>
+											På vindsvåningen finns tre familjerum med snedtak och lite olika inredning.
+											Östra sjösviten har dubbelsäng och en fullstor våningssäng samt en mindre
+											barnsäng. Västra Sjösviten har en dubbelsäng samt en äldre, lite kortare 100
+											år gammal säng med höga gavlar. Plats finns för en mindre barnsäng vid behov.
+											Båda rummen har fransk balkong med utsikt över sjön. Stjärnhimlen är det
+											tredje familjerummet som istället har takfönster och utsikt från dubbelsängen
+											rakt upp mot stjärnhimlen. (Därför saknas möjlighet till mörkläggning) Rummet
+											har tre fullstora bäddar och en extrabädd gömd bakom vackra allmogedörrar. En
+											liten koja helt enkelt, med egen stjärnhimmel. Förutom sovrummen finns allrum
+											och ett badrum med dusch och skötbord.
+										</p>
+
+										<p>
+											På bottenvåningen av Sjömagasinet är skötsamma hundar välkomna. Inga djur får
+											vistas på vindsvåningen eller i sängarna. Grill och flera uteplatser finns i
+											direkt anslutning till huset och även vid sjön. Skogen, badplatsen och
+											grillplatsen är till för alla och får användas av fler än gästerna.
+											Sjömagasinet inrymmer även ett större garage/båthus och förrådsutrymmen. Efter
+											överenskommelse kan vi ordna så att kyl och skafferi är fyllt efter era
+											önskemål. Beställda varor betalas senast vid ankomst. Våra uthyrningsvillkor
+											finns under en egen flik och ska läsas innan bokning.
+										</p>
+									</article>
+								</div>
+
+								<div class="lg:h-full">
+									<!-- Carussel -->
+
+									<div class="card p-4 grid grid-cols-[auto_1fr_auto] items-center">
+										<!-- Full Images -->
+										<div
+											bind:this={elemCarousel}
+											class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
+										>
+											{#each unsplashIds as unsplashId}
+												<img
+													class="snap-center w-[1024px] rounded-container-token"
+													src={unsplashId}
+													alt={unsplashId}
+													loading="lazy"
+												/>
+											{/each}
+										</div>
+									</div>
+
+									<div class="card p-4 grid grid-cols-6 gap-4">
+										{#each unsplashIds as unsplashId, i}
+											<button type="button" on:click={() => carouselThumbnail(i)}>
+												<img
+													class="rounded-container-token"
+													src={unsplashId}
+													alt={unsplashId}
+													loading="lazy"
+												/>
+											</button>
+										{/each}
+									</div>
+
+									<!-- end of carussel -->
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- end of first section -->
+
+					<section class="p-4 flex-row">
+						<div class="lg:py-2 lg:mx-2 lg:px-20 p-2">
+							<div class="max-w-3xl py-4">
+								<h2 class="text-3xl font-bold sm:text-4xl">Pris</h2>
+							</div>
+							<article class="space-y-4">
+								<p>
+									Sjömagasinet hyrs ut minst 2-3 nätter i följd och i första hand hela veckor. Då
+									prisläget påverkas av längden på vistelsen, tiden på året, eventuella storhelger
+									samt antalet gäster det gäller så har vi valt att inte gå ut med några priser här
+									på hemsidan. Vi ber er därför skicka ett mail med er förfrågan. Berätta gärna lite
+									om er själva, syftet med er vistelse och hur många barn respektive vuxna ni är som
+									vill komma så återkommer vi med ett prisförslag.
+								</p>
+							</article>
+
+							<button
+								type="button"
+								class="btn variant-filled-primary px-12 py-3 mt-8 text-md font-medium"
+								>Skicka en förfrågan</button
+							>
+						</div>
+					</section>
+
+					<!-- second section -->
 					<section>
 						<div class="card p-4 px-10">
 							<div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
@@ -67,17 +180,15 @@
 												<h2 class="text-xl font-bold sm:text-3xl">Uthyrning</h2>
 
 												<p class="mt-4">
-													Hos oss kan du sova lyxigt i sköna sängar mellan vita lakan eller enkelt i
-													vårt mysiga vindskydd vid sjökanten. Våra två hus, Skogslugnet och
-													Sjömagasinet, kan hyras separat eller tillsammans med en total kapacitet
-													för upp till 25-30 gäster.
+													Ta en titt på vårt andra hus, eller behöver du något mindre kanske?
 												</p>
 											</header>
-											<button
-												class="bg-orange-600 inline-block px-12 py-3 mt-8 text-md font-medium transition rounded hover:shadow focus:outline-none focus:ring"
+											<!-- <button
+												type="button"
+												class="btn variant-filled-primary px-12 py-3 mt-8 text-md font-medium"
 											>
 												Läs mer
-											</button>
+											</button> -->
 										</div>
 									</div>
 
@@ -116,95 +227,7 @@
 							</div>
 						</div>
 					</section>
-					<!-- end of first section -->
-
-					<!-- second section -->
-					<section>
-						<div class="mx-auto max-w-screen-xl px-4 py-14 sm:px-6 sm:py-18 lg:px-8">
-							<div class="grid sm:grid-flow-row md:grid-flow-row lg:grid-flow-col">
-								<div class="lg:h-full">
-									<!-- Carussel -->
-
-									<div class="card p-4 grid grid-cols-[auto_1fr_auto] items-center">
-										<!-- Full Images -->
-										<div
-											bind:this={elemCarousel}
-											class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
-										>
-											{#each unsplashIds as unsplashId}
-												<img
-													class="snap-center w-[1024px] rounded-container-token"
-													src={unsplashId}
-													alt={unsplashId}
-													loading="lazy"
-												/>
-											{/each}
-										</div>
-									</div>
-
-									<div class="card p-4 grid grid-cols-6 gap-4">
-										{#each unsplashIds as unsplashId, i}
-											<button type="button" on:click={() => carouselThumbnail(i)}>
-												<img
-													class="rounded-container-token"
-													src={unsplashId}
-													alt={unsplashId}
-													loading="lazy"
-												/>
-											</button>
-										{/each}
-									</div>
-
-									<!-- end of carussel -->
-								</div>
-								<div class="lg:py-2 p-2">
-									<div class="max-w-3xl py-4">
-										<h2 class="text-3xl font-bold sm:text-4xl">Landa i vackra Hagablänket</h2>
-									</div>
-									<article class="space-y-4">
-										<p>
-											Mitt i natursköna Smålands Trädgård vid sjön Saljen, ligger Hagablänket – ett
-											blänk av Småländsk natur när den är som bäst! Det är en plats med många
-											möjligheter och uthyrning av två nybyggda hus med självhushåll. Sjömagasinet
-											som erbjuder 13 bäddar och Skogslugnet med plats för upp till 17 gäster. Husen
-											kan hyras separat eller tillsammans och sängarna står alltid bäddade med vita
-											lakan när ni kommer.
-										</p>
-
-										<p>
-											Omgivningarna bjuder på vila och rekreation i skog och mark. Här finns fiske,
-											bad, härliga båtturer, stillhet och tystnad. Hagablänket passar för
-											barnfamiljer, medarbetardagar, mindre läger, semester eller högtider med hela
-											släkten – eller varför inte bara en mysig helg på tu man hand?
-										</p>
-
-										<p>
-											Här på hemsidan hoppas vi att du ska hitta bilder och information som gör dig
-											glad och nyfiken. Läs mer under flikarna, titta på bilderna och hör av dig med
-											frågor eller bokningsförfrågan. Vill du komma och titta på plats och höra den
-											märkliga berättelsen om Hagablänket så är du varmt välkommen.
-										</p>
-
-										<p>Vi bjuder på en kopp kaffe!</p>
-
-										<p>Lenette & Sigge Ahnstedt</p>
-									</article>
-								</div>
-							</div>
-						</div>
-					</section>
 					<!-- end of second section -->
-
-					<section class="p-4 flex-row">
-						<div class="card p-4 px-10">
-							Vill ni bara boka en dag eller kväll finns mer information under Endagsbesök. Har du
-							behov av vila och återhämtning kan du välja att läsa under Retreater/vila. I
-							Hagablänket finns också Kapellet. Det är en timmer-stuga med ett stort rum och ett
-							mindre samtalsrum som, så fort det blivit klart, kommer att kunna användas. Vårt
-							smultronställe är en plats med många möjligheter för gäster med olika behov. Under de
-							olika flikarna kan du se bilder och läsa mer om respektive boende.
-						</div>
-					</section>
 					<!-- Footer -->
 
 					<footer class="bg-gray-100">

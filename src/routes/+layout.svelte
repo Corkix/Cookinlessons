@@ -1,14 +1,21 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import logo from '$lib/images/hagalogo1.png';
-	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
 
 	// Skeleton Features
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	import { Drawer, drawerStore } from '@skeletonlabs/skeleton';
+	import { popup } from '@skeletonlabs/skeleton';
+	import type { PopupSettings } from '@skeletonlabs/skeleton';
+	import { ListBox, ListBoxItem } from '@skeletonlabs/skeleton';
+
+	// Floating UI
+	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
 	// Local Features
-	import Navigation from '$lib/Navigation/components/Navigation.svelte';
+	import Navigation from '$lib/components/Navigation.svelte';
 
 	// Stylesheets
 	import '../theme.css';
@@ -18,6 +25,15 @@
 	function drawerOpen(): void {
 		drawerStore.open({});
 	}
+
+	let comboboxValue: string;
+
+	const popupCombobox: PopupSettings = {
+		event: 'focus-click',
+		target: 'popupCombobox',
+		placement: 'bottom',
+		closeQuery: '.listbox-item'
+	};
 
 	// Reactive Properties
 	$: classesSidebarLeft = $page.url.pathname === '/' ? 'w-0' : 'w-0 lg:w-64';
@@ -59,9 +75,27 @@
 			<svelte:fragment slot="trail">
 				<div class="max-sm:hidden">
 					<a class="btn btn-sm text-lg" href="/">Hem</a>
-					<a class="btn btn-sm text-lg" href="/uthyrning">Uthyrning</a>
+					<button class="btn text-lg justify-between" use:popup={popupCombobox}>
+						<span class="capitalize">{comboboxValue ?? 'Uthyrning'}</span>
+					</button>
+					<div class="card w-40 shadow-xl py-2" data-popup="popupCombobox">
+						<ListBox rounded="rounded-none">
+							<ListBoxItem bind:group={comboboxValue} name="Sjömagasinet" value="sjohus">
+								<a class="btn btn-sm text-lg hover:text-slate-950" href="/sjohus">Sjömagasinet</a
+								></ListBoxItem
+							>
+							<ListBoxItem bind:group={comboboxValue} name="Skogslugnet" value="skoghus">
+								<a class="btn btn-sm text-lg hover:text-slate-950" href="/skoghus">Skogslunget</a>
+							</ListBoxItem>
+							<ListBoxItem bind:group={comboboxValue} name="Kontakt" value="kontakt">
+								<a class="btn btn-sm text-lg hover:text-slate-950" href="/uthyrning">Kontakt</a>
+							</ListBoxItem>
+						</ListBox>
+					</div>
+
+					<a class="btn btn-sm text-lg" href="/njutbart">Njutbart</a>
 					<a class="btn btn-sm text-lg" href="/omOss">Om oss</a>
-					<a class="btn btn-sm text-lg" href="/stenberga">Stenberga Missonsförsamiling</a>
+					<a class="btn btn-sm text-lg" href="/stenberga">Missonsförsamiling</a>
 				</div>
 			</svelte:fragment>
 		</AppBar>

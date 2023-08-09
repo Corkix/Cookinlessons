@@ -9,6 +9,8 @@
 	import hero5 from '$lib/images/hero5.jpg';
 	import hero6 from '$lib/images/hero6.jpg';
 
+	import { TabGroup, Tab } from '@skeletonlabs/skeleton';
+
 	let elemCarousel: HTMLDivElement;
 	const unsplashIds = [hero1, hero2, hero3, hero4, hero5, hero6];
 
@@ -31,6 +33,8 @@
 	function carouselThumbnail(index: number) {
 		elemCarousel.scroll(elemCarousel.clientWidth * index, 0);
 	}
+
+	let tabSet: number = 0;
 </script>
 
 <!-- <ol class="breadcrumb">
@@ -47,164 +51,295 @@
 	</head>
 	<body class="flex flex-col">
 		<div class="gap-2">
-			<!-- Hero -->
-			<section class="bg-gray-50">
-				<div class="">
-					<img alt="Bild på Sjömagasinet med sin gula dörr" src={hero2} class="w-full h-full" />
-				</div>
-			</section>
-			<!-- End of Hero -->
 			<div class="flex p-2 lg:items-center lg:justify-between">
 				<div class="flex-1">
-					<!-- fist section  -->
-					<section>
+					<section class="p-4 flex-row">
 						<div class="card p-4 px-10">
-							<div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
-								<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
-									<div class="grid p-6 rounded place-content-center sm:p-8">
-										<div class="max-w-md mx-auto text-center lg:text-left">
-											<header>
-												<h2 class="text-xl font-bold sm:text-3xl">Uthyrning</h2>
-
-												<p class="mt-4">
-													Hos oss kan du sova lyxigt i sköna sängar mellan vita lakan eller enkelt i
-													vårt mysiga vindskydd vid sjökanten. Våra två hus, Skogslugnet och
-													Sjömagasinet, kan hyras separat eller tillsammans med en total kapacitet
-													för upp till 25-30 gäster.
-												</p>
-											</header>
-											<button
-												class="bg-orange-600 inline-block px-12 py-3 mt-8 text-md font-medium transition rounded hover:shadow focus:outline-none focus:ring"
-											>
-												Läs mer
-											</button>
-										</div>
-									</div>
-
-									<div class="lg:col-span-2 lg:py-8">
-										<ul class="grid grid-cols-2 gap-4">
-											<li>
-												<a href="/sjohus" class="block group">
-													<img
-														src={hero2}
-														alt=""
-														class="object-cover w-full rounded aspect-square"
-													/>
-
-													<div class="mt-3">
-														<h3 class="font-medium text-gray-900">Sjömagasinet</h3>
-													</div>
-												</a>
-											</li>
-
-											<li>
-												<a href="/skoghus" class="block group">
-													<img
-														src={SkogHus}
-														alt=""
-														class="object-cover w-full rounded aspect-square"
-													/>
-
-													<div class="mt-3">
-														<h3 class="font-medium text-gray-900">Skogslugnet</h3>
-													</div>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
+							<article class="space-y-4">
+								<h1 class="text-3xl font-bold sm:text-4xl">Njutbart</h1>
+								<p>
+									Här kan du stanna en stund och bara njuta av vackra bilder och ord under de olika
+									flikarna. En hemsida kan fyllas enbart av fakta och viktig information men den kan
+									också erbjuda en välbehövlig paus med något njutbart att vila i och beröras av.
+								</p>
+							</article>
 						</div>
 					</section>
-					<!-- end of first section -->
 
 					<!-- second section -->
 					<section>
-						<div class="mx-auto max-w-screen-xl px-4 py-14 sm:px-6 sm:py-18 lg:px-8">
-							<div class="grid sm:grid-flow-row md:grid-flow-row lg:grid-flow-col">
-								<div class="lg:h-full">
-									<!-- Carussel -->
+						<TabGroup justify="justify-center">
+							<Tab bind:group={tabSet} name="tab2" value={0}>Älskade Solnedgång</Tab>
+							<Tab bind:group={tabSet} name="tab2" value={1}>Smålands Trädgård</Tab>
+							<Tab bind:group={tabSet} name="tab3" value={2}>Inredning</Tab>
+							<Tab bind:group={tabSet} name="tab3" value={3}>Tänkvärt</Tab>
+							<!-- Tab Panels --->
+							<svelte:fragment slot="panel">
+								{#if tabSet === 0}
+									<div class="gap-2">
+										<div class="flex p-2 lg:items-center lg:justify-between">
+											<div class="flex-1">
+												<!-- Älskade solnedgång -->
+												<section>
+													<div class="mx-auto max-w-screen-xl px-4 sm:px-6 sm:py-18 lg:px-8">
+														<div class="grid sm:grid-flow-row md:grid-flow-row lg:grid-flow-col">
+															<div class="lg:py-2 p-2">
+																<div class="max-w-3xl py-4">
+																	<h2 class="text-3xl font-bold sm:text-4xl">Älskade solnedgång</h2>
+																</div>
+																<article class="space-y-4">
+																	<p>
+																		Under åren har vi fått förmånen att njuta av den ena
+																		solnedgången vackrare än den andra. Vi vill därför dela några av
+																		bilderna med dig och hoppas att du snart får möjlighet att komma
+																		till Hagablänket så att du själv får se och njuta av de fina
+																		sommarkvällarna.
+																	</p>
+																</article>
+															</div>
+															<div class="lg:h-full">
+																<!-- Carussel -->
 
-									<div class="card p-4 grid grid-cols-[auto_1fr_auto] items-center">
-										<!-- Full Images -->
-										<div
-											bind:this={elemCarousel}
-											class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
-										>
-											{#each unsplashIds as unsplashId}
-												<img
-													class="snap-center w-[1024px] rounded-container-token"
-													src={unsplashId}
-													alt={unsplashId}
-													loading="lazy"
-												/>
-											{/each}
+																<div class="card p-4 grid grid-cols-[auto_1fr_auto] items-center">
+																	<!-- Full Images -->
+																	<div
+																		bind:this={elemCarousel}
+																		class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
+																	>
+																		{#each unsplashIds as unsplashId}
+																			<img
+																				class="snap-center w-[1024px] rounded-container-token"
+																				src={unsplashId}
+																				alt={unsplashId}
+																				loading="lazy"
+																			/>
+																		{/each}
+																	</div>
+																</div>
+
+																<div class="card p-4 grid grid-cols-6 gap-4">
+																	{#each unsplashIds as unsplashId, i}
+																		<button type="button" on:click={() => carouselThumbnail(i)}>
+																			<img
+																				class="rounded-container-token"
+																				src={unsplashId}
+																				alt={unsplashId}
+																				loading="lazy"
+																			/>
+																		</button>
+																	{/each}
+																</div>
+
+																<!-- end of carussel -->
+															</div>
+														</div>
+													</div>
+												</section>
+											</div>
 										</div>
 									</div>
+								{:else if tabSet === 1}
+									<!-- Smålands trädgård -->
+									<div class="gap-2">
+										<div class="flex p-2 lg:items-center lg:justify-between">
+											<div class="flex-1">
+												<section>
+													<div class="mx-auto max-w-screen-xl px-4 sm:px-6 sm:py-18 lg:px-8">
+														<div class="grid sm:grid-flow-row md:grid-flow-row lg:grid-flow-col">
+															<div class="lg:py-2 p-2">
+																<div class="max-w-3xl py-4">
+																	<h2 class="text-3xl font-bold sm:text-4xl">Smålands trädgård</h2>
+																</div>
+																<article class="space-y-4">
+																	<p>
+																		Hagablänket är ett av många smultronställen i det natursköna
+																		området Smålands Trädgård runt sjön Saljen. Vissa tider på året
+																		är det som ett naturens skafferi med svamp och bär av olika
+																		slag. Andra årstider bjuder på skir grönska, sprakande
+																		höstfärger eller gnistrande rimfrost. Vi önskar att du snart ska
+																		få se det vackra med egna ögon. Tills dess får du njuta av
+																		bilderna.
+																	</p>
+																</article>
+															</div>
+															<div class="lg:h-full">
+																<!-- Carussel -->
 
-									<div class="card p-4 grid grid-cols-6 gap-4">
-										{#each unsplashIds as unsplashId, i}
-											<button type="button" on:click={() => carouselThumbnail(i)}>
-												<img
-													class="rounded-container-token"
-													src={unsplashId}
-													alt={unsplashId}
-													loading="lazy"
-												/>
-											</button>
-										{/each}
+																<div class="card p-4 grid grid-cols-[auto_1fr_auto] items-center">
+																	<!-- Full Images -->
+																	<div
+																		bind:this={elemCarousel}
+																		class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
+																	>
+																		{#each unsplashIds as unsplashId}
+																			<img
+																				class="snap-center w-[1024px] rounded-container-token"
+																				src={unsplashId}
+																				alt={unsplashId}
+																				loading="lazy"
+																			/>
+																		{/each}
+																	</div>
+																</div>
+
+																<div class="card p-4 grid grid-cols-6 gap-4">
+																	{#each unsplashIds as unsplashId, i}
+																		<button type="button" on:click={() => carouselThumbnail(i)}>
+																			<img
+																				class="rounded-container-token"
+																				src={unsplashId}
+																				alt={unsplashId}
+																				loading="lazy"
+																			/>
+																		</button>
+																	{/each}
+																</div>
+
+																<!-- end of carussel -->
+															</div>
+														</div>
+													</div>
+												</section>
+											</div>
+										</div>
 									</div>
+								{:else if tabSet === 2}
+									<!-- Inredning -->
+									<div class="gap-2">
+										<div class="flex p-2 lg:items-center lg:justify-between">
+											<div class="flex-1">
+												<section>
+													<div class="mx-auto max-w-screen-xl px-4 sm:px-6 sm:py-18 lg:px-8">
+														<div class="grid sm:grid-flow-row md:grid-flow-row lg:grid-flow-col">
+															<div class="lg:py-2 p-2">
+																<div class="max-w-3xl py-4">
+																	<h2 class="text-3xl font-bold sm:text-4xl">Inredning</h2>
+																</div>
+																<article class="space-y-4">
+																	<p>
+																		Inredningsdetaljer Skogslugnet Det är inte oviktigt hur ett hem
+																		är inrett. Därför har vi gjort vårt yttersta för att Hagablänket
+																		ska erbjuda något njutbart även de dagar det känns bäst att
+																		stanna inomhus. En sprakande brasa eller en genomtänkt
+																		dekoration, en vacker bukett eller något gammalt och nött. Någon
+																		har sagt att kärleken ligger i de små detaljerna. Ibland är det
+																		de minsta detaljerna som gör det största intrycket. Hämta
+																		inspiration eller låt blicken bara vila.
+																	</p>
+																</article>
+															</div>
+															<div class="lg:h-full">
+																<!-- Carussel -->
 
-									<!-- end of carussel -->
-								</div>
-								<div class="lg:py-2 p-2">
-									<div class="max-w-3xl py-4">
-										<h2 class="text-3xl font-bold sm:text-4xl">Landa i vackra Hagablänket</h2>
+																<div class="card p-4 grid grid-cols-[auto_1fr_auto] items-center">
+																	<!-- Full Images -->
+																	<div
+																		bind:this={elemCarousel}
+																		class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
+																	>
+																		{#each unsplashIds as unsplashId}
+																			<img
+																				class="snap-center w-[1024px] rounded-container-token"
+																				src={unsplashId}
+																				alt={unsplashId}
+																				loading="lazy"
+																			/>
+																		{/each}
+																	</div>
+																</div>
+
+																<div class="card p-4 grid grid-cols-6 gap-4">
+																	{#each unsplashIds as unsplashId, i}
+																		<button type="button" on:click={() => carouselThumbnail(i)}>
+																			<img
+																				class="rounded-container-token"
+																				src={unsplashId}
+																				alt={unsplashId}
+																				loading="lazy"
+																			/>
+																		</button>
+																	{/each}
+																</div>
+
+																<!-- end of carussel -->
+															</div>
+														</div>
+													</div>
+												</section>
+											</div>
+										</div>
 									</div>
-									<article class="space-y-4">
-										<p>
-											Mitt i natursköna Smålands Trädgård vid sjön Saljen, ligger Hagablänket – ett
-											blänk av Småländsk natur när den är som bäst! Det är en plats med många
-											möjligheter och uthyrning av två nybyggda hus med självhushåll. Sjömagasinet
-											som erbjuder 13 bäddar och Skogslugnet med plats för upp till 17 gäster. Husen
-											kan hyras separat eller tillsammans och sängarna står alltid bäddade med vita
-											lakan när ni kommer.
-										</p>
+								{:else if tabSet === 3}
+									<!-- Tänkvärt -->
+									<div class="gap-2">
+										<div class="flex p-2 lg:items-center lg:justify-between">
+											<div class="flex-1">
+												<section>
+													<div class="mx-auto max-w-screen-xl px-4 sm:px-6 sm:py-18 lg:px-8">
+														<div class="grid sm:grid-flow-row md:grid-flow-row lg:grid-flow-col">
+															<div class="lg:py-2 p-2">
+																<div class="max-w-3xl py-4">
+																	<h2 class="text-3xl font-bold sm:text-4xl">Tänkvärt</h2>
+																</div>
+																<article class="space-y-4">
+																	<p>
+																		”Oron upphör där tron tar vid” ”Det är när vi kommer till slutet
+																		av vår egen förmåga, accepterar våra svagheter och erkänner att
+																		vi behöver Guds hjälp som vi upptäcker vår fulla potential.” ”Om
+																		vi förstod hur högt Gud älskar alla vars liv berör våra, skulle
+																		vi också anstränga oss mer för att älska dem.” ”Överträffa
+																		varandra i ömsesidig aktning.” ”Inget hjärta är så hårt att inte
+																		Guds kärlek kan beröra och förändra det.”
+																	</p>
+																</article>
+															</div>
+															<div class="lg:h-full">
+																<!-- Carussel -->
 
-										<p>
-											Omgivningarna bjuder på vila och rekreation i skog och mark. Här finns fiske,
-											bad, härliga båtturer, stillhet och tystnad. Hagablänket passar för
-											barnfamiljer, medarbetardagar, mindre läger, semester eller högtider med hela
-											släkten – eller varför inte bara en mysig helg på tu man hand?
-										</p>
+																<div class="card p-4 grid grid-cols-[auto_1fr_auto] items-center">
+																	<!-- Full Images -->
+																	<div
+																		bind:this={elemCarousel}
+																		class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
+																	>
+																		{#each unsplashIds as unsplashId}
+																			<img
+																				class="snap-center w-[1024px] rounded-container-token"
+																				src={unsplashId}
+																				alt={unsplashId}
+																				loading="lazy"
+																			/>
+																		{/each}
+																	</div>
+																</div>
 
-										<p>
-											Här på hemsidan hoppas vi att du ska hitta bilder och information som gör dig
-											glad och nyfiken. Läs mer under flikarna, titta på bilderna och hör av dig med
-											frågor eller bokningsförfrågan. Vill du komma och titta på plats och höra den
-											märkliga berättelsen om Hagablänket så är du varmt välkommen.
-										</p>
+																<div class="card p-4 grid grid-cols-6 gap-4">
+																	{#each unsplashIds as unsplashId, i}
+																		<button type="button" on:click={() => carouselThumbnail(i)}>
+																			<img
+																				class="rounded-container-token"
+																				src={unsplashId}
+																				alt={unsplashId}
+																				loading="lazy"
+																			/>
+																		</button>
+																	{/each}
+																</div>
 
-										<p>Vi bjuder på en kopp kaffe!</p>
-
-										<p>Lenette & Sigge Ahnstedt</p>
-									</article>
-								</div>
-							</div>
-						</div>
+																<!-- end of carussel -->
+															</div>
+														</div>
+													</div>
+												</section>
+											</div>
+										</div>
+									</div>
+								{/if}
+							</svelte:fragment>
+						</TabGroup>
 					</section>
 					<!-- end of second section -->
 
-					<section class="p-4 flex-row">
-						<div class="card p-4 px-10">
-							Vill ni bara boka en dag eller kväll finns mer information under Endagsbesök. Har du
-							behov av vila och återhämtning kan du välja att läsa under Retreater/vila. I
-							Hagablänket finns också Kapellet. Det är en timmer-stuga med ett stort rum och ett
-							mindre samtalsrum som, så fort det blivit klart, kommer att kunna användas. Vårt
-							smultronställe är en plats med många möjligheter för gäster med olika behov. Under de
-							olika flikarna kan du se bilder och läsa mer om respektive boende.
-						</div>
-					</section>
 					<!-- Footer -->
 
 					<footer class="bg-gray-100">
