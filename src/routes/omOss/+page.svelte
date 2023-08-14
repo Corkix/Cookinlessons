@@ -1,32 +1,24 @@
 <script lang="ts">
-	import HomeImg from '$lib/images/Home.jpg';
-	import SjoHus from '$lib/images/sjomagasinet.jpg';
-	import SkogHus from '$lib/images/skogslugnet.jpg';
-	import hero1 from '$lib/images/hero1.jpg';
-	import hero2 from '$lib/images/hero2.jpg';
-	import hero3 from '$lib/images/hero3.jpg';
-	import hero4 from '$lib/images/hero4.jpg';
-	import hero5 from '$lib/images/hero5.jpg';
-	import hero6 from '$lib/images/hero6.jpg';
+	import Footer from '$lib/components/Footer.svelte';
+	import { TabGroup, Tab } from '@skeletonlabs/skeleton';
+
+	let tabSet: number = 0;
 
 	let elemCarousel: HTMLDivElement;
-	const unsplashIds = [hero1, hero2, hero3, hero4, hero5, hero6];
+	const karusellIds = [
+		'https://hagablanket.se/wp-content/uploads/2021/05/skogslugnet1.jpg',
+		'https://hagablanket.se/bilder/skogslugnet2',
+		'https://hagablanket.se/bilder/skogslugnet3',
+		'https://hagablanket.se/bilder/skogslugnet4',
+		'https://hagablanket.se/bilder/skogslugnet5',
+		'https://hagablanket.se/bilder/skogslugnet6'
+	];
 
-	function carouselLeft(): void {
-		const x =
-			elemCarousel.scrollLeft === 0
-				? elemCarousel.clientWidth * elemCarousel.childElementCount // loop
-				: elemCarousel.scrollLeft - elemCarousel.clientWidth; // step left
-		elemCarousel.scroll(x, 0);
-	}
-
-	function carouselRight(): void {
-		const x =
-			elemCarousel.scrollLeft === elemCarousel.scrollWidth - elemCarousel.clientWidth
-				? 0 // loop
-				: elemCarousel.scrollLeft + elemCarousel.clientWidth; // step right
-		elemCarousel.scroll(x, 0);
-	}
+	const bildGalleriIds = [
+		'https://hagablanket.se/bilder/skogslugnet7',
+		'https://hagablanket.se/bilder/skogslugnet8',
+		'https://hagablanket.se/bilder/skogslugnet9'
+	];
 
 	function carouselThumbnail(index: number) {
 		elemCarousel.scroll(elemCarousel.clientWidth * index, 0);
@@ -50,7 +42,11 @@
 			<!-- Hero -->
 			<section class="bg-gray-50">
 				<div class="">
-					<img alt="Bild på Sjömagasinet med sin gula dörr" src={hero2} class="w-full h-full" />
+					<img
+						alt=""
+						src="https://hagablanket.se/wp-content/uploads/2022/12/Sidhuvud-Hagablankets-Undersidor.jpg"
+						class="w-full h-full"
+					/>
 				</div>
 			</section>
 			<!-- End of Hero -->
@@ -58,262 +54,569 @@
 				<div class="flex-1">
 					<!-- fist section  -->
 					<section>
-						<div class="card p-4 px-10">
-							<div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
-								<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
-									<div class="grid p-6 rounded place-content-center sm:p-8">
-										<div class="max-w-md mx-auto text-center lg:text-left">
-											<header>
-												<h2 class="text-xl font-bold sm:text-3xl">Uthyrning</h2>
-
-												<p class="mt-4">
-													Hos oss kan du sova lyxigt i sköna sängar mellan vita lakan eller enkelt i
-													vårt mysiga vindskydd vid sjökanten. Våra två hus, Skogslugnet och
-													Sjömagasinet, kan hyras separat eller tillsammans med en total kapacitet
-													för upp till 25-30 gäster.
-												</p>
-											</header>
-											<button
-												class="bg-orange-600 inline-block px-12 py-3 mt-8 text-md font-medium transition rounded hover:shadow focus:outline-none focus:ring"
-											>
-												Läs mer
-											</button>
-										</div>
-									</div>
-
-									<div class="lg:col-span-2 lg:py-8">
-										<ul class="grid grid-cols-2 gap-4">
-											<li>
-												<a href="/sjohus" class="block group">
-													<img
-														src={hero2}
-														alt=""
-														class="object-cover w-full rounded aspect-square"
-													/>
-
-													<div class="mt-3">
-														<h3 class="font-medium text-gray-900">Sjömagasinet</h3>
-													</div>
-												</a>
-											</li>
-
-											<li>
-												<a href="/skoghus" class="block group">
-													<img
-														src={SkogHus}
-														alt=""
-														class="object-cover w-full rounded aspect-square"
-													/>
-
-													<div class="mt-3">
-														<h3 class="font-medium text-gray-900">Skogslugnet</h3>
-													</div>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<!-- end of first section -->
-
-					<!-- second section -->
-					<section>
-						<div class="mx-auto max-w-screen-xl px-4 py-14 sm:px-6 sm:py-18 lg:px-8">
+						<div class="flex mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-18 lg:px-8">
 							<div class="grid sm:grid-flow-row md:grid-flow-row lg:grid-flow-col">
+								<div class="lg:py-2 p-2">
+									<div class="max-w-3xl py-4">
+										<h2 class="text-3xl font-bold sm:text-4xl">Om oss</h2>
+									</div>
+									<article class="space-y-4">
+										<p>
+											Vi som hyr ut Hagablänket heter Lenette & Sigge Ahnstedt. En dröm har blivit
+											verklighet men vägen dit har varit lång. Nu står husen klara mitt i en
+											underbar omgivning, bara 100 meter från sjön Saljen i Stenberga och vi vill
+											gärna att fler får glädje av vårt alldeles egna smultronställe!
+										</p>
+
+										<p>
+											Vilka är då vi? Lenette såg dagens ljus 1975 och gården Haga, där Hagablänket
+											byggts upp, är hennes föräldragård. Hon är florist och musiker med många
+											strängar på sin lyra. Genom företaget SOLFJÄT-Blommor & Sång erbjuder hon
+											blommor, sång och musik till både bröllop och begravning. Hon har spelat in en
+											CD-skiva med dottern Sara, född 1999, som nu är mamma till två fina grabbar
+											och bor med man och barn lite norr om Göteborg i Alafors. Lenette har gett ut
+											ett par böcker åt en släkting och tillsammans med sin bror gjort en film om
+											sin föräldragård, Hemma på Haga marker. De senaste åren har hon varit
+											byggledare i Hagablänket.
+										</p>
+									</article>
+								</div>
+
 								<div class="lg:h-full">
 									<!-- Carussel -->
 
 									<div class="card p-4 grid grid-cols-[auto_1fr_auto] items-center">
 										<!-- Full Images -->
-										<div
-											bind:this={elemCarousel}
-											class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
-										>
-											{#each unsplashIds as unsplashId}
-												<img
-													class="snap-center w-[1024px] rounded-container-token"
-													src={unsplashId}
-													alt={unsplashId}
-													loading="lazy"
-												/>
-											{/each}
+										<div class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
+											<img
+												class="snap-center w-[1024px] rounded-container-token"
+												src="https://www.dagen.se/resizer/ytfy7aVX5lJyBFq9o35a2Ya7g8w=/800x0/filters:format(jpg):quality(70):focal(705x493:715x503)/cloudfront-eu-central-1.images.arcpublishing.com/mentormedier/I4EARG7ZJN32LAPFM2MKR2OA7U.jpg"
+												alt=""
+												loading="lazy"
+											/>
 										</div>
 									</div>
-
-									<div class="card p-4 grid grid-cols-6 gap-4">
-										{#each unsplashIds as unsplashId, i}
-											<button type="button" on:click={() => carouselThumbnail(i)}>
-												<img
-													class="rounded-container-token"
-													src={unsplashId}
-													alt={unsplashId}
-													loading="lazy"
-												/>
-											</button>
-										{/each}
-									</div>
-
 									<!-- end of carussel -->
 								</div>
-								<div class="lg:py-2 p-2">
-									<div class="max-w-3xl py-4">
-										<h2 class="text-3xl font-bold sm:text-4xl">Landa i vackra Hagablänket</h2>
+							</div>
+						</div>
+
+						<section class="p-4 flex-col">
+							<div class="lg:py-2 lg:mx-2 lg:px-20 p-2">
+								<article class="space-y-4">
+									<p>
+										Sigge föddes 1966 på en gård i Skepperstad, strax utanför Sävsjö fem mil
+										härifrån, som den yngste av tio syskon. Han jobbar som drifttekniker på Njudung
+										Energi i Vetlanda och på fritiden kopplar han gärna av med lite fiske, helst
+										trolling. I den mån han hinner hjälper han till med olika göromål i Hagablänket.
+										Han har barnasinnet kvar, är en omtyckt scoutledare och stolt morfar till två
+										barnbarn. Någon har sagt: Det konstigaste är inte att själv bli morfar, det
+										konstigaste är att vakna upp bredvid mormor…
+									</p>
+
+									<p>
+										Tillsammans med Lenette leder han nu Äktenskapsretreaterna i Hagablänket. Båda
+										är sedan många år engagerade i den lilla missionsförsamlingen i Stenberga som
+										ofta förlägger sin verksamhet till Hagablänket.
+									</p>
+
+									<p>
+										Vi bor bara några kilometer bort i den lilla byn Smålands Farstorp längs väg 125
+										och kan därför finnas tillgängliga så mycket som önskas. Där bor vi tillsammans
+										med våra två yngsta barn, David som är född 2001 och Josef som är född 2006. Har
+										vi tid och möjlighet bjuder vi gärna på en båttur, fisketur eller varför inte
+										lite åkning med ringar efter båten för den som vågar. Något av det bästa vi vet
+										är att få dela med oss av den märkliga berättelsen om hur Hagablänket kom till.
+										Fråga oss så berättar vi gärna!
+									</p>
+								</article>
+							</div>
+						</section>
+					</section>
+					<!-- end of first section -->
+
+					<section class="p-4 flex-col">
+						<div class="lg:py-2 lg:mx-2 lg:px-20 p-2">
+							<TabGroup justify="justify-center">
+								<Tab bind:group={tabSet} name="tab1" value={0}>Visionen</Tab>
+								<Tab bind:group={tabSet} name="tab2" value={1}>Den långa berättelsen</Tab>
+								<Tab bind:group={tabSet} name="tab3" value={2}>Gästboken</Tab>
+								<Tab bind:group={tabSet} name="tab4" value={3}>Omdömen</Tab>
+								<!-- Tab Panels --->
+								<svelte:fragment slot="panel">
+									{#if tabSet === 0}
+										<section class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+											{#each bildGalleriIds as bildGalleriId}
+												<div>
+													<img
+														class="snap-center w-[1024px] rounded-container-token"
+														src={bildGalleriId}
+														alt={bildGalleriId}
+														loading="lazy"
+													/>
+												</div>
+											{/each}
+										</section>
+										<div class="gap-2">
+											<div class="flex p-2 lg:items-center lg:justify-between">
+												<div class="flex-1">
+													<section>
+														<div class="max-w-3xl py-4">
+															<h2 class="text-3xl font-bold sm:text-4xl">Visionen</h2>
+														</div>
+														<article class="space-y-4">
+															<p>
+																I Stenberga, mitt i natursköna Smålands Trädgård vid sjön Saljen,
+																byggs just nu en rekreationsplats på Guds uppdrag. Vi är så
+																tacksamma för förtroendet att få vara en del av detta. Ändå vet vi
+																inte riktigt vad Gud har tänkt eftersom vi bara får veta ett steg i
+																taget då både visionen och platsen tillhör Honom.
+															</p>
+															<p>
+																När Skogslugnet, ett uthyrningshus med 17 bäddar, skulle byggas 2016
+																fick vi ett bibelord: ”Detta är Herrens eget verk – det står för
+																våra ögon som ett under” och det gör det verkligen! När
+																Sjömagasinet, ett hus med 13 bäddar, garage och båthus, byggdes med
+																hast 2020, gav han oss ordet: ”Herren skapade och det blev – han
+																befallde och det stod där” och efter knappt fyra månader stod det
+																klart för att ta emot de första gästerna! Inom en snar framtid tror
+																vi också att ett Kapell och samtalsrum står redo att användas. I
+																allt detta är vi helt beroende av förböner och att Herren förser med
+																de resurser som behövs, precis som han lovat.
+															</p>
+															<p>
+																Vår bön är att Hagablänket ska få vara en plats där människor får
+																känna Guds frid och ges möjlighet att komma närmare Jesus Kristus
+																som själv säger: ”Jag är vägen, sanningen och livet – ingen kommer
+																till Fadern (Gud) utom genom mig.”
+															</p>
+															<p>
+																Hör av dig om du vill veta mer eller komma på ett besök! Vill du
+																hjälpa oss att sprida vår vision till fler så mailar eller skickar
+																vi gärna vårt Visionsblad till dig. Bara kontakta oss!
+															</p>
+														</article>
+
+														<article class="pt-4 space-y-1">
+															<p>Guds välsignelse önskar vi dig!</p>
+															<p>Lenette & Sigge Ahnstedt</p>
+														</article>
+													</section>
+												</div>
+											</div>
+										</div>
+									{:else if tabSet === 1}
+										<section class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+											{#each bildGalleriIds as bildGalleriId}
+												<div>
+													<img
+														class="snap-center w-[1024px] rounded-container-token"
+														src={bildGalleriId}
+														alt={bildGalleriId}
+														loading="lazy"
+													/>
+												</div>
+											{/each}
+										</section>
+										<div class="gap-2">
+											<div class="flex p-2 lg:items-center lg:justify-between">
+												<div class="flex-1">
+													<section>
+														<div class="max-w-3xl py-4">
+															<h2 class="text-3xl font-bold sm:text-4xl">Den långa berättelsen</h2>
+														</div>
+														<article class="space-y-4">
+															<p>
+																Den långa berättelsen om Hagablänket kommer nog att kräva en hel bok
+																för att få plats. Alltså är det i princip omöjligt att lyckas få med
+																den här på vår hemsida i sin helhet. Vid några tillfällen har vår
+																märkliga resa blivit omskriven i olika tidningar och därför väljer
+																vi att återge en av artiklarna här för att du ska få en liten glimt
+																av allt som hänt. Kommer du på besök berättar vi gärna med våra egna
+																ord om alla märkliga sammanträffanden och mirakler som skett men här
+																kommer ett litet smakprov ur tidningen Dagen 25 augusti 2020. Den
+																fina texten är skriven av Gabriella Mellergårdh och återgiven med
+																hennes tillåtelse.
+															</p>
+
+															<h4>Deras husbyggardröm blev en berättelse om Guds storhet</h4>
+															<p>
+																”Bibeln berättar om hur lärjungen Petrus, fylld av tro på Guds
+																kraft, klev över båtkanten och började gå över vattnet för att möta
+																Jesus. Samma starka tro fick Noa att bygga en jättelik båt på torra
+																land. Lenette och Sigge Ahnstedt har påbörjat en helt annan, men
+																ändå liknande resa – i tro.
+															</p>
+															<p>
+																Hon gillar att planera och att ha kontroll, något som hon under den
+																här resans gång har insett att hon måste släppa, för drömmen om
+																Hagablänket ritas om hela tiden. För både Lenette och Sigge är det
+																tydligt att den här platsen i grund och botten inte är deras. Den
+																tillhör Gud. Och precis som det också står i Bibeln, konstaterar
+																Lenette, så är Guds planer många gånger högre och större än våra
+																egna. För hur kan man annars förklara att Lenette, frilansflorist
+																och musiker, kan rita två stora tvåvåningshus som i dag står
+																uppbyggda på platsen, samt ett tredje hus – kapellet – som är på
+																gång? Att helt okända människor tar kontakt och blir viktiga
+																pusselbitar för allt ifrån markberedning till finansiering? Och att
+																en familj med endast en fast inkomst och utan egen byggerfarenhet
+																kunnat landa ett projekt som Hagablänket så här långt? – Det vill
+																till ett mirakel för att det ska gå. Vi står med skulder och akuta
+																räkningar, inte minst efter sommarens avbokningar på grund av
+																coronapandemin, men vi vet att Gud har resurserna, säger Lenette.
+															</p>
+															<p>
+																Så låt oss försöka ta historien från början, om hur Lenette och
+																Sigge för drygt tio år sedan började planera och drömma, men hur
+																kampen om strandskyddsdispens drog ut på tiden, tillstånden uteblev,
+																tvivlen växte, landarealen blev mindre än de hade tänkt när marken
+																till slut hade styckats av och denna tärande väntan gjorde att
+																Lenette till slut gick in i väggen. Åren gick, ändå kunde hon inte
+																låta bli att skissa på ritning efter ritning. – Jag kände till sist
+																att vi var tvungna att lägga ner alla byggplaner och göra ett
+																tydligt avslut för jag slutade ju aldrig att rita hus! Lenette
+																skrattar. Hon sa till Gud att ”det enda som kan få mig att ändra mig
+																och fortsätta, är om någon ringer och säger att han har mitt hus”,
+																och med den kommentaren begravde de visionen. Samtidigt malde ett
+																bibelord inom Lenette: ”När tiden var inne att något skulle ske var
+																jag där.” (Jesaja 48:16). Och när hennes bror, som höll på att
+																avverka i området, undrade om han skulle ta ner lite skog vid sjön
+																också, ”ifall era barn vill bygga hus någon gång i framtiden” sa
+																Lenette okej. – Plötsligt fanns där bara ett kalhygge. Vi grät, både
+																jag och barnen. Skulle jag inte ens kunna åka till vår badplats utan
+																att se det där monumentet för vårt misslyckande? säger Lenette.
+															</p>
+															<p>
+																På en av ICCC:s, Kristna Handelskammarens, företagarfrukostar
+																berättade hon om drömmen som gått i kras men fick då ett oväntat och
+																ganska oönskat svar: ”Det är klart att ni ska bygga! Det är ju bara
+																du som är så fylld av fruktan.” – Frågorna hopade sig. Hur skulle
+																jag orka? Och var skulle vi få pengar ifrån med bara en fast
+																inkomst? Och, kanske den allra största frågan: Varför hade vi fått
+																vänta så länge? Lenette och Sigge fick förbön och man skickade med
+																dem ett bibelord från Jesaja.
+															</p>
+															<p>
+																Samma kväll satt Lenette och bläddrade i sin egen bibel för att
+																hitta bibelordet. Hon hittade inte precis det hon sökte, men hon
+																fann något annat. – Plötsligt svarade Gud, sida upp och sida ner på
+																alla frågor vi haft. ”Frukta inte.” ”Ett brutet strå ska jag inte
+																krossa och en tynande veke ska jag inte släcka.” ”Jag ska ge er
+																dolda skatter och bortglömda rikedomar för att ni ska veta att jag
+																är Herren.” För varje sida kom det någon ny käftsmäll, och jag blev
+																mest irriterad. Lenette ler. Läsningen ur Jesaja fortsatte: Jag har
+																förutsagt detta för längesedan, men för att ni inte ska tro at det
+																är era egna gudabilder som gjort det, har jag låtit er vänta. Men nu
+																är tiden inne, nu ska detta ske som jag sedan länge har förutsagt. –
+																Och jag sa till Sigge att, det verkar ju som att Gud vill att vi ska
+																bygga hus i alla fall!
+															</p>
+															<p>
+																Dagen därpå när familjen sitter hemma och tittar på tevegudstjänsten
+																så ringer telefonen: ”Hej, jag heter Jimmy. Behöver du en
+																husstomme?” Det visar sig att denne Jimmy hade en husstomme till
+																salu som nästan exakt motsvarade ett av de hus som Lenette ritat.
+																Märkligt nog det hus som var så vågat och galet tilltaget att hon
+																redan från början sagt till sig själv att ”detta huset kommer vi i
+																alla fall aldrig att bygga.” – Gud har sådan humor! Jimmy står på
+																sig men Lenette säger nej, gång på gång, för de hade ju lagt ner
+																sina planer.
+															</p>
+															<p>
+																Några dagar senare, tre veckor innan semestern 2016, ringer en
+																snickare och frågar: Ska ni bygga hus i sommar? Nej, sa Lenette och
+																Sigge, igen. Vad synd, svarade snickaren, för annars hade jag kunnat
+																komma och gjuta en platta innan semestern. Här kom vändpunkten. – Vi
+																kände att vi hade två val. Antingen säger vi nej och får aldrig veta
+																vad Gud har tänkt med den här platsen. Eller också säger vi ja, tar
+																steget över relingen och börjar gå på vatten. Med bävande hjärtan sa
+																Lenette och Sigge ja. Och här sjösattes projekt Hagablänket, som
+																efter lång väntan växlade upp i enorm hastighet. Beviljat bygglov
+																gällde fyra små stugor, inte ett stort tvåvåningshus på 180
+																kvadratmeter, så här gällde att söka nytt. Lenette sprang runt med
+																en handritad skiss på huset och fick grannarnas underskrifter. –
+																Fyra dagar senare satt vi i byggmöte med kommunen och fick bygglovet
+																med oss.
+															</p>
+
+															<p>
+																Och så har det fortsatt. Varken Lenette eller Sigge hade någon aning
+																om vad som krävdes praktiskt men detalj efter detalj har fallit på
+																plats genom smått mirakulösa händelser och okända människor som de
+																fått kontakt med i precis rätt ögonblick. När leveransen av
+																husstommen dröjde kände Lenette hur symptomen från utbrändheten
+																gjorde sig påminda igen. Hon bad Gud om ett tydligt tecken och
+																svaret kom helt oväntat på en pensionärsträff där Lenette och
+																dottern skulle sjunga. En äldre man gav en profetisk hälsning: ”Det
+																var så konstigt, när ni sjöng såg jag en bild på ett stort, stort
+																hus och en massa människor så var välsignade i vad ni nu håller på
+																med!” – Varje gång vi har tvivlat och undrat vad vi håller på med så
+																går jag tillbaka till den här punkten, i november 2016, när Gud så
+																tydligt talade till oss: Jag är med er i detta, ni ska fortsätta gå.
+															</p>
+
+															<p>
+																I december 2016 kom så husstommen äntligen på plats och sommaren
+																2017 invigdes bottenvåningen på Skogslugnet i Hagablänket med de
+																första bokade gästerna, efter ett halvårs snickeriarbete med Lenette
+																som byggledare. Den allra första retreaten i huset gick av stapeln
+																inte långt därefter, helt enligt Lenettes dröm men väldigt mycket
+																tidigare än hon själv hade planerat. – Det är otroligt hur Gud
+																jobbar, han sparkar in en i grejer som man inte tror att man är
+																mogen för. Huset var inte färdigbyggt, jag var inte färdigtänkt, men
+																sedan dess har vi haft tre retreater om året i Missionsförsamlingens
+																regi och det har varit helt fantastiska helger. Huset är som klippt
+																och skuret för det här, säger Lenette.
+															</p>
+
+															<p>
+																Sedan dess har det fortsatt i högt tempo. Övervåningen
+																färdigställdes våren 2018 och i fjol var huset uthyrt hela sommaren.
+																Då förbereddes också plats till både ett kapell och ett garage – som
+																i slutändan visade sig bli inte bara ett garage utan ännu ett
+																tvåvåningshus för uthyrning. – Jag började rita ett garage men fick
+																inte till det, så jag bad vårt bärarlag om förbön. De bad att Gud
+																skulle ge mig mönsterbilden för nästa hus i Hagablänket, att Gud
+																skulle hålla i pennan, och så blev det. Huset var färdigritat på en
+																kvart, berättar Lenette. Det var den 22 augusti 2019. Därefter
+																följde märkliga möten med pingstvänner och Tanzaniska evangelister
+																på rastplatsen Höganloft i Tranås. En husförsäljare blev oväntat
+																berörd av visionen bakom Hagablänket och gick själv in för att
+																hjälpa Lenette och Sigge – och den 13 mars 2020 levererades stommen.
+																– Redan den 25 maj, bara drygt två månader senare, var det dags för
+																slutbesiktning av Sjömagasinet.
+															</p>
+
+															<p>
+																– Det verkar som att Gud har väldigt bråttom med att få klart det
+																här stället. Precis när vi tror att vi kan andas ut så smäller det
+																till igen, säger Sigge och pekar upp mot kapellplatsen där virke
+																ligger och väntar på byggstart. – Kanske är det meningen att det ska
+																gå så här snabbt för att människor ska förstå att vi inte gör det
+																här av egen kraft. Framöver ska Lenette och Sigge också hålla sin
+																första äktenskapsretreat tillsammans. – Det är några par som har
+																sagt att de vill komma. De vet att vi aldrig har gjort det här
+																förut, men de har sagt att vi får öva på dem, så nu är vi här,
+																utanför båtkanten igen, säger Lenette Ahnstedt och skrattar.”
+															</p>
+														</article>
+													</section>
+												</div>
+											</div>
+										</div>
+									{:else if tabSet === 2}
+										<section class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+											{#each bildGalleriIds as bildGalleriId}
+												<div>
+													<img
+														class="snap-center w-[1024px] rounded-container-token"
+														src={bildGalleriId}
+														alt={bildGalleriId}
+														loading="lazy"
+													/>
+												</div>
+											{/each}
+										</section>
+										<section>
+											<div class="flex">
+												<div class="place-content-center sm:p-8">
+													<div class=" text-center">
+														<header>
+															<h2 class="text-xl font-bold sm:text-3xl">Gästboken</h2>
+														</header>
+
+														<article class="space-y-4 pt-4">
+															<p>
+																”Så tacksamma för att få bo några dygn i denna vackra och fridfulla
+																miljö!”
+															</p>
+
+															<p>
+																”Att stiga in i huset en mörk novemberkväll, öppna dörren och genast
+																känna sig hemma, det är värdefullt!”
+															</p>
+															<p>
+																”Tänk att få komma till detta palats på en otroligt vacker plats!”
+															</p>
+															<p>
+																”Så glada att vi fick ta del av er fantastiska hushistoria och
+																gästfrihet… och att få upplevt ett vackert och häftigt hus.”
+															</p>
+															<p>”Underbart, harmoniskt och fridfullt!”</p>
+															<p>
+																”Underbart fint hus med härliga rum. Fantastiskt fin berättelse om
+																Guds outsägliga vägar.”
+															</p>
+
+															<p>
+																”Imponerad av all kreativitet och skaparförmåga. Önskar er all
+																lycka!”
+															</p>
+
+															<p>
+																”Så spännande att få höra tänket, bakom ritningar och grejer i
+																Hagablänket. En vevgramofon, ett par skidor och underkläder, en
+																vedspis, en dubbeldörr och galgar av läder. Här är en plats för
+																umgänge och vila. Tack för ikväll – nu måste vi kila!”
+															</p>
+														</article>
+													</div>
+												</div>
+											</div>
+										</section>
+									{:else if tabSet === 3}
+										<section class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+											{#each bildGalleriIds as bildGalleriId}
+												<div>
+													<img
+														class="snap-center w-[1024px] rounded-container-token"
+														src={bildGalleriId}
+														alt={bildGalleriId}
+														loading="lazy"
+													/>
+												</div>
+											{/each}
+										</section>
+										<section>
+											<div class="flex">
+												<div class="place-content-center sm:p-8">
+													<div class=" text-center">
+														<header>
+															<h2 class="text-xl font-bold sm:text-3xl">Omdömen</h2>
+														</header>
+
+														<article class="space-y-8 pt-4">
+															<p>
+																”Ett unikt sommarboende, med en fantastisk hyresvärd. Lugnt,
+																rofyllt, härlig solnedgång både från stranden och huset. Trevlig
+																liten badstrand, lämplig för såväl barn som vuxna. Måste upplevas!”
+															</p>
+
+															<p>
+																“Hagablänket I a wonderful place that we already miss about a week
+																after. The combination of the grand, beautiful and well equipped
+																houses with plenty of space, and the quite simply glorious nature
+																surrounding both houses makes this a great catch to book. The beauty
+																of Småland, the privacy of the area, whether you book both houses or
+																only one, you´ll have apace and privacy both indoors and outdoors.
+																The owners are very helpful with any questions you might have,
+																nothing seems to be a problem. Last but very much not least: The bed
+																are great!”
+															</p>
+															<p>
+																”En mycket varm och genuin plats och atmosfär. Otroligt vackert
+																beläget i skogen, vid sjön nedanför. Inredningen är mycket smakfull
+																och har en personlig utformning som gör att man känner sig hemma och
+																välkommen. Rekommenderar Hagablänket för flera aktiviteter som för
+																din familj eller bara för att vara i denna fantastiska miljö av lugn
+																och stressfri avskildhet.”
+															</p>
+															<p>
+																“We had a simply wonderful week in Sjömagasinet. The surrounding
+																glorious nature, the space in and outside of the house and the
+																comfortably designed interiors were all so well suited for our group
+																of couples and friends. The layout is well thought out with a big
+																living-room and kitchen, made for big dinners and long
+																conversations. The outside area is comfortable and beautiful with
+																plenty of room and seating for big parties or smaller meals. A short
+																walk takes you to the lake where we spent many hours just taking in
+																the view. There is both a beach shore suitable for walking into the
+																water as well as a pier with a sturdy ladder. We had rented the
+																other house aswell but there was enough distance to enjoy privacy if
+																only Sjömagasinet had been rented.”
+															</p>
+
+															<p>
+																“Hagablänket is an ideal home for a family vacation, a family
+																reunion, or even a club or business retreat. The spacious home is
+																beautifully decorated and is as luxurious and pristine as one could
+																ask. The wonderful and gracious owners of this vacation home, have
+																spared no expense in making their guests feel comfortable and
+																pampered. With the adjacent lake on the property there is also the
+																opportunity for fishing, swimming, boating and lakeside barbeques.
+																We highly recommend this property and assure you that you will love
+																it and never want to leave!”
+															</p>
+														</article>
+													</div>
+												</div>
+											</div>
+										</section>
+									{/if}
+								</svelte:fragment>
+							</TabGroup>
+						</div>
+					</section>
+
+					<section>
+						<div class="card p-4 px-10">
+							<div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
+								<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:items-stretch">
+									<div class="grid p-6 rounded place-content-center sm:p-8">
+										<div class="max-w-md mx-auto text-center lg:text-left">
+											<header>
+												<h2 class="text-xl font-bold sm:text-3xl">Stöd oss</h2>
+											</header>
+
+											<article class="space-y-4 pt-4">
+												<p>
+													Hagablänket är inte i första hand uppbyggt för kommersiell uthyrning. Vi
+													tror att det ska vara ett ställe där människor i olika åldrar kan få landa
+													och hämta kraft. En plats för upprättelse, helande och växande på olika
+													sätt. Vår bön är att Hagablänket ska vara en plats där människor får känna
+													Guds frid och ges möjlighet att komma närmare Jesus Kristus som själv
+													säger: Jag är vägen, sanningen och livet. Ingen kommer till Fadern (Gud)
+													utom genom mig.
+												</p>
+
+												<p>
+													För att detta ska kunna bli verklighet är vi helt beroende av hjälp från
+													olika håll. Du kan stödja oss på olika sätt genom månadsgivande,
+													engångsgåvor, dina förböner, sponsring av annonser eller olika typer av
+													praktisk hjälp eller volontärtjänst. Kontakta oss för mer information, vi
+													är så tacksamma för allt stöd vi kan få!
+												</p>
+											</article>
+
+											<article class="pt-4 space-y-2">
+												<p>Svenskt Bankgiro: 549-1709</p>
+
+												<p>Swish: 123 322 96 14</p>
+
+												<p>Märk insättningen med ”Gåva”</p>
+											</article>
+
+											<article class="pt-4 space-y-1">
+												<p>Internationella gåvor:</p>
+
+												<p>Mottagarnamn: Lenette Ahnstedt Axebo, Farstorpsvägen 12, 574 98 Nye</p>
+
+												<p>
+													IBAN (international bank account number): SE21 8000 0840 5333 3874 9561
+												</p>
+
+												<p>BIC (bank identifier code): SWEDSESS</p>
+
+												<p>Bankens adress: Virserums Sparbank, Storgatan 8, 577 71 Virserum</p>
+											</article>
+
+											<h4>Stort tack för ditt stöd!</h4>
+										</div>
 									</div>
-									<article class="space-y-4">
-										<p>
-											Mitt i natursköna Smålands Trädgård vid sjön Saljen, ligger Hagablänket – ett
-											blänk av Småländsk natur när den är som bäst! Det är en plats med många
-											möjligheter och uthyrning av två nybyggda hus med självhushåll. Sjömagasinet
-											som erbjuder 13 bäddar och Skogslugnet med plats för upp till 17 gäster. Husen
-											kan hyras separat eller tillsammans och sängarna står alltid bäddade med vita
-											lakan när ni kommer.
-										</p>
-
-										<p>
-											Omgivningarna bjuder på vila och rekreation i skog och mark. Här finns fiske,
-											bad, härliga båtturer, stillhet och tystnad. Hagablänket passar för
-											barnfamiljer, medarbetardagar, mindre läger, semester eller högtider med hela
-											släkten – eller varför inte bara en mysig helg på tu man hand?
-										</p>
-
-										<p>
-											Här på hemsidan hoppas vi att du ska hitta bilder och information som gör dig
-											glad och nyfiken. Läs mer under flikarna, titta på bilderna och hör av dig med
-											frågor eller bokningsförfrågan. Vill du komma och titta på plats och höra den
-											märkliga berättelsen om Hagablänket så är du varmt välkommen.
-										</p>
-
-										<p>Vi bjuder på en kopp kaffe!</p>
-
-										<p>Lenette & Sigge Ahnstedt</p>
-									</article>
+									<div class="grid p-6 rounded place-content-center sm:p-8">
+										<div class="max-w-md mx-auto text-center lg:text-left">
+											<img
+												src="https://hagablanket.se/wp-content/uploads/2021/06/DSF3056.jpg"
+												alt=""
+											/>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</section>
-					<!-- end of second section -->
 
-					<section class="p-4 flex-row">
-						<div class="card p-4 px-10">
-							Vill ni bara boka en dag eller kväll finns mer information under Endagsbesök. Har du
-							behov av vila och återhämtning kan du välja att läsa under Retreater/vila. I
-							Hagablänket finns också Kapellet. Det är en timmer-stuga med ett stort rum och ett
-							mindre samtalsrum som, så fort det blivit klart, kommer att kunna användas. Vårt
-							smultronställe är en plats med många möjligheter för gäster med olika behov. Under de
-							olika flikarna kan du se bilder och läsa mer om respektive boende.
-						</div>
-					</section>
-					<!-- Footer -->
-
-					<footer class="bg-gray-100">
-						<div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-							<div class="flex justify-center text-teal-600">
-								<svg
-									class="h-8"
-									viewBox="0 0 118 24"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M37.83 19.2047C37.2352 19.237 36.6469 19.0679 36.16 18.7247C35.9566 18.5739 35.7929 18.3758 35.6831 18.1476C35.5733 17.9193 35.5208 17.6678 35.53 17.4147V8.1447C35.5252 8.1055 35.5293 8.0656 35.5422 8.0282C35.555 7.9908 35.5762 7.9569 35.6042 7.9289C35.6322 7.9009 35.6661 7.8797 35.7035 7.8669C35.7409 7.854 35.7808 7.8499 35.82 7.8547H37.5C37.69 7.8547 37.78 7.9547 37.78 8.1447V16.6947C37.78 17.0747 37.95 17.2647 38.3 17.2647C38.4484 17.2708 38.5968 17.254 38.74 17.2147C38.94 17.2147 39.05 17.2747 39.06 17.4547L39.21 18.7047C39.2172 18.7412 39.2165 18.7787 39.208 18.8149C39.1995 18.851 39.1833 18.885 39.1605 18.9143C39.1378 18.9437 39.109 18.9679 39.0762 18.9852C39.0433 19.0025 39.0071 19.0126 38.97 19.0147C38.602 19.1363 38.2175 19.2004 37.83 19.2047Z"
-										fill="currentColor"
-									/>
-									<path
-										d="M47.28 18.1347C46.4359 18.8322 45.375 19.2137 44.28 19.2137C43.185 19.2137 42.1242 18.8322 41.28 18.1347C40.5381 17.3857 40.1218 16.374 40.1218 15.3197C40.1218 14.2654 40.5381 13.2537 41.28 12.5047C42.1258 11.8108 43.186 11.4316 44.28 11.4316C45.374 11.4316 46.4342 11.8108 47.28 12.5047C48.0049 13.2606 48.4096 14.2674 48.4096 15.3147C48.4096 16.362 48.0049 17.3688 47.28 18.1247V18.1347ZM42.86 16.8147C43.2518 17.1696 43.7614 17.3661 44.29 17.3661C44.8186 17.3661 45.3283 17.1696 45.72 16.8147C46.0746 16.4071 46.2698 15.885 46.2698 15.3447C46.2698 14.8045 46.0746 14.2824 45.72 13.8747C45.3283 13.5199 44.8186 13.3233 44.29 13.3233C43.7614 13.3233 43.2518 13.5199 42.86 13.8747C42.5055 14.2824 42.3102 14.8045 42.3102 15.3447C42.3102 15.885 42.5055 16.4071 42.86 16.8147Z"
-										fill="currentColor"
-									/>
-									<path
-										d="M57.66 11.6847C57.85 11.6847 57.94 11.7847 57.94 11.9747V19.1447C57.9575 19.6287 57.8669 20.1104 57.6749 20.5549C57.4829 20.9995 57.1943 21.3957 56.83 21.7147C56.0214 22.4042 54.9816 22.7615 53.92 22.7147C52.9612 22.7484 52.0151 22.4866 51.21 21.9647C50.8662 21.739 50.5725 21.4449 50.3472 21.1009C50.1218 20.7568 49.9696 20.3701 49.9 19.9647C49.9 19.7647 49.9 19.6747 50.17 19.6747H51.85C51.9213 19.6771 51.9905 19.7002 52.049 19.741C52.1076 19.7818 52.1531 19.8386 52.18 19.9047C52.289 20.2084 52.5062 20.4613 52.79 20.6147C53.1359 20.7932 53.5209 20.8826 53.91 20.8747C54.1448 20.8876 54.3798 20.8535 54.6013 20.7745C54.8228 20.6956 55.0263 20.5732 55.2 20.4147C55.3587 20.2489 55.4821 20.0526 55.5629 19.8378C55.6437 19.623 55.6801 19.394 55.67 19.1647V18.5347C55.0685 18.9771 54.3364 19.2059 53.59 19.1847C53.0676 19.2037 52.5468 19.117 52.0587 18.9297C51.5707 18.7423 51.1256 18.4584 50.75 18.0947C50.0291 17.3489 49.6261 16.3521 49.6261 15.3147C49.6261 14.2774 50.0291 13.2806 50.75 12.5347C51.1274 12.1743 51.5731 11.8931 52.0608 11.7076C52.5486 11.5221 53.0685 11.4361 53.59 11.4547C54.358 11.4344 55.1098 11.678 55.72 12.1447V11.9847C55.7154 11.9464 55.7194 11.9075 55.7317 11.8709C55.744 11.8344 55.7643 11.801 55.7911 11.7732C55.8179 11.7454 55.8506 11.724 55.8867 11.7104C55.9229 11.6968 55.9616 11.6915 56 11.6947L57.66 11.6847ZM53.78 17.4047C54.0376 17.4127 54.2939 17.364 54.5306 17.262C54.7673 17.1601 54.9788 17.0074 55.15 16.8147C55.4825 16.3854 55.6629 15.8577 55.6629 15.3147C55.6629 14.7717 55.4825 14.2441 55.15 13.8147C54.9794 13.6247 54.7692 13.4742 54.5343 13.374C54.2993 13.2738 54.0453 13.2263 53.79 13.2347C53.5294 13.2265 53.2702 13.275 53.0302 13.3769C52.7902 13.4788 52.5752 13.6316 52.4 13.8247C52.0317 14.2354 51.838 14.7735 51.86 15.3247C51.842 15.8705 52.0314 16.4029 52.39 16.8147C52.5656 17.0073 52.7807 17.1598 53.0206 17.2616C53.2605 17.3634 53.5195 17.4122 53.78 17.4047Z"
-										fill="currentColor"
-									/>
-									<path
-										d="M66.57 18.1347C65.7242 18.8286 64.664 19.2078 63.57 19.2078C62.476 19.2078 61.4158 18.8286 60.57 18.1347C59.8445 17.3771 59.4395 16.3687 59.4395 15.3197C59.4395 14.2708 59.8445 13.2623 60.57 12.5047C61.4166 11.8126 62.4765 11.4345 63.57 11.4345C64.6635 11.4345 65.7234 11.8126 66.57 12.5047C67.2949 13.2606 67.6996 14.2674 67.6996 15.3147C67.6996 16.362 67.2949 17.3688 66.57 18.1247V18.1347ZM62.14 16.8147C62.3317 16.9971 62.5577 17.1396 62.8049 17.234C63.0521 17.3284 63.3155 17.3729 63.58 17.3647C63.8428 17.3715 64.1044 17.3265 64.3498 17.2321C64.5952 17.1377 64.8195 16.9959 65.01 16.8147C65.3588 16.4043 65.5503 15.8833 65.5503 15.3447C65.5503 14.8061 65.3588 14.2851 65.01 13.8747C64.8195 13.6936 64.5952 13.5517 64.3498 13.4574C64.1044 13.363 63.8428 13.3179 63.58 13.3247C63.3155 13.3166 63.0521 13.361 62.8049 13.4554C62.5577 13.5498 62.3317 13.6924 62.14 13.8747C61.7913 14.2851 61.5998 14.8061 61.5998 15.3447C61.5998 15.8833 61.7913 16.4043 62.14 16.8147Z"
-										fill="currentColor"
-									/>
-									<path
-										d="M71.31 9.9847C71.0457 10.2161 70.7063 10.3436 70.355 10.3436C70.0037 10.3436 69.6644 10.2161 69.4 9.9847C69.2802 9.8716 69.1847 9.7352 69.1194 9.5839C69.0542 9.4326 69.0205 9.2695 69.0205 9.1047C69.0205 8.9399 69.0542 8.7769 69.1194 8.6255C69.1847 8.4742 69.2802 8.3378 69.4 8.2247C69.6671 7.9991 70.0054 7.8754 70.355 7.8754C70.7046 7.8754 71.0429 7.9991 71.31 8.2247C71.4299 8.3378 71.5254 8.4742 71.5906 8.6255C71.6559 8.7769 71.6895 8.9399 71.6895 9.1047C71.6895 9.2695 71.6559 9.4326 71.5906 9.5839C71.5254 9.7352 71.4299 9.8716 71.31 9.9847ZM71.52 19.2047C70.9256 19.2339 70.3383 19.0651 69.85 18.7247C69.6497 18.5717 69.4888 18.3729 69.381 18.145C69.2731 17.9171 69.2213 17.6667 69.23 17.4147V11.9747C69.2252 11.9355 69.2293 11.8956 69.2422 11.8582C69.255 11.8208 69.2762 11.7869 69.3042 11.7589C69.3322 11.7309 69.3661 11.7097 69.4035 11.6969C69.4409 11.684 69.4808 11.6799 69.52 11.6847H71.2C71.39 11.6847 71.48 11.7847 71.48 11.9747V16.6947C71.48 17.0747 71.65 17.2647 71.99 17.2647C72.1417 17.2702 72.2933 17.2533 72.44 17.2147C72.64 17.2147 72.75 17.2747 72.76 17.4547L72.91 18.7047C72.9172 18.7412 72.9165 18.7787 72.908 18.8149C72.8995 18.851 72.8833 18.885 72.8605 18.9143C72.8378 18.9437 72.809 18.9679 72.7762 18.9852C72.7433 19.0025 72.7071 19.0126 72.67 19.0147C72.2988 19.137 71.9109 19.2011 71.52 19.2047Z"
-										fill="currentColor"
-									/>
-									<path
-										d="M79.09 11.4447C79.6148 11.424 80.1383 11.5089 80.6296 11.6944C81.1209 11.88 81.57 12.1623 81.95 12.5247C82.6572 13.2837 83.0504 14.2824 83.0504 15.3197C83.0504 16.357 82.6572 17.3558 81.95 18.1147C81.5718 18.4804 81.1233 18.7655 80.6317 18.9528C80.1401 19.1402 79.6157 19.2259 79.09 19.2047C78.3412 19.2214 77.6073 18.9932 77 18.5547V22.1647C77 22.3547 76.9 22.4447 76.71 22.4447H75.03C74.9917 22.4519 74.9522 22.4496 74.9149 22.4381C74.8777 22.4265 74.8438 22.4061 74.8162 22.3785C74.7887 22.3509 74.7682 22.3171 74.7567 22.2798C74.7451 22.2426 74.7429 22.2031 74.75 22.1647V13.9647C74.7618 13.8845 74.7546 13.8027 74.7292 13.7257C74.7037 13.6488 74.6605 13.5788 74.6032 13.5215C74.5459 13.4642 74.476 13.4211 74.399 13.3956C74.3221 13.3701 74.2402 13.363 74.16 13.3747H73.83C73.61 13.3747 73.5 13.2947 73.5 13.1347V11.9547C73.4948 11.8817 73.5148 11.8091 73.5567 11.7491C73.5985 11.689 73.6597 11.6451 73.73 11.6247C74.0759 11.499 74.442 11.438 74.81 11.4447C75.177 11.4122 75.5453 11.4901 75.8678 11.6682C76.1902 11.8464 76.4522 12.1168 76.62 12.4447C76.9421 12.1189 77.3273 11.8622 77.752 11.6902C78.1767 11.5183 78.632 11.4347 79.09 11.4447ZM77.53 16.8147C77.7083 17.0011 77.9225 17.1494 78.1597 17.2507C78.3969 17.352 78.6521 17.4042 78.91 17.4042C79.1679 17.4042 79.4232 17.352 79.6603 17.2507C79.8975 17.1494 80.1117 17.0011 80.29 16.8147C80.6656 16.3958 80.8629 15.8469 80.84 15.2847C80.8662 14.7221 80.6684 14.1719 80.29 13.7547C80.1117 13.5684 79.8975 13.4201 79.6603 13.3188C79.4232 13.2174 79.1679 13.1652 78.91 13.1652C78.6521 13.1652 78.3969 13.2174 78.1597 13.3188C77.9225 13.4201 77.7083 13.5684 77.53 13.7547C77.1662 14.1793 76.9768 14.726 77 15.2847C76.9797 15.843 77.1688 16.3887 77.53 16.8147Z"
-										fill="currentColor"
-									/>
-									<path
-										d="M87.77 19.2047C86.8723 19.2416 85.9822 19.0269 85.2 18.5847C84.8862 18.3957 84.619 18.1384 84.4181 17.832C84.2173 17.5256 84.0881 17.1779 84.04 16.8147C84.04 16.6147 84.11 16.5147 84.33 16.5147H85.8C85.8699 16.5175 85.9378 16.5394 85.996 16.5783C86.0542 16.6171 86.1006 16.6712 86.13 16.7347C86.34 17.2747 86.89 17.5447 87.77 17.5447C88.077 17.5588 88.3826 17.4969 88.66 17.3647C88.7558 17.3215 88.8379 17.2531 88.8978 17.1668C88.9577 17.0805 88.993 16.9795 89 16.8747C89 16.6147 88.84 16.4347 88.52 16.3147C88.1405 16.1884 87.7481 16.1045 87.35 16.0647C86.8785 16.0113 86.4109 15.9278 85.95 15.8147C85.5018 15.7133 85.0943 15.4799 84.78 15.1447C84.5949 14.9169 84.4587 14.6534 84.3797 14.3707C84.3008 14.088 84.2809 13.792 84.3212 13.5013C84.3616 13.2105 84.4613 12.9311 84.6142 12.6806C84.7671 12.43 84.9699 12.2136 85.21 12.0447C85.9308 11.5856 86.7765 11.3619 87.63 11.4047C88.4564 11.3768 89.274 11.5812 89.99 11.9947C90.2786 12.1582 90.527 12.3839 90.7173 12.6555C90.9076 12.9271 91.0349 13.2377 91.09 13.5647C91.09 13.7647 91 13.8647 90.82 13.8647H89.34C89.2777 13.8684 89.2157 13.8532 89.1622 13.8211C89.1087 13.789 89.0661 13.7414 89.04 13.6847C88.9411 13.4479 88.7549 13.2581 88.52 13.1547C88.255 13.0161 87.959 12.9472 87.66 12.9547C87.3669 12.9388 87.0745 12.9973 86.81 13.1247C86.7168 13.1607 86.6366 13.2237 86.5795 13.3057C86.5225 13.3877 86.4913 13.4849 86.49 13.5847C86.4964 13.7215 86.5465 13.8526 86.6329 13.9588C86.7193 14.065 86.8374 14.1406 86.97 14.1747C87.354 14.3195 87.7533 14.4201 88.16 14.4747C88.6277 14.5363 89.0917 14.6231 89.55 14.7347C89.9982 14.8362 90.4057 15.0695 90.72 15.4047C90.8882 15.5894 91.018 15.8055 91.1021 16.0407C91.1862 16.2758 91.2229 16.5253 91.21 16.7747C91.2186 17.1204 91.1375 17.4624 90.9745 17.7674C90.8115 18.0723 90.5722 18.3298 90.28 18.5147C89.5329 18.9944 88.6574 19.235 87.77 19.2047Z"
-										fill="currentColor"
-									/>
-									<path
-										d="M101.78 18.7047C101.786 18.7402 101.784 18.7765 101.776 18.8114C101.767 18.8464 101.752 18.8792 101.73 18.9081C101.709 18.937 101.682 18.9613 101.651 18.9796C101.62 18.9979 101.586 19.0098 101.55 19.0147C101.185 19.1339 100.804 19.198 100.42 19.2047C100.04 19.2441 99.656 19.1847 99.306 19.0323C98.955 18.8799 98.65 18.6396 98.42 18.3347C97.714 18.942 96.8 19.2536 95.87 19.2047C95.438 19.2246 95.007 19.1539 94.604 18.9972C94.201 18.8405 93.835 18.6012 93.53 18.2947C93.227 17.9736 92.9922 17.5946 92.8392 17.1805C92.6863 16.7664 92.6186 16.3257 92.64 15.8847V11.9747C92.64 11.7847 92.73 11.6847 92.92 11.6847H94.6C94.79 11.6847 94.88 11.7847 94.88 11.9747V15.5847C94.862 16.0345 95.015 16.4743 95.31 16.8147C95.457 16.9707 95.636 17.0933 95.834 17.1744C96.032 17.2555 96.246 17.2931 96.46 17.2847C96.679 17.2943 96.898 17.2604 97.104 17.1848C97.31 17.1093 97.499 16.9937 97.66 16.8447C97.812 16.6877 97.931 16.5011 98.008 16.2964C98.086 16.0917 98.12 15.8733 98.11 15.6547V11.9747C98.11 11.7847 98.2 11.6847 98.39 11.6847H100.09C100.28 11.6847 100.37 11.7847 100.37 11.9747V16.6847C100.37 17.0747 100.54 17.2647 100.87 17.2647C101.025 17.2707 101.18 17.2539 101.33 17.2147C101.368 17.2041 101.408 17.2022 101.446 17.2092C101.485 17.2161 101.521 17.2317 101.553 17.2548C101.585 17.2779 101.611 17.3079 101.63 17.3425C101.648 17.3771 101.658 17.4155 101.66 17.4547L101.78 18.7047Z"
-										fill="currentColor"
-									/>
-									<path
-										d="M117.67 18.7047C117.679 18.7405 117.68 18.7779 117.673 18.8141C117.665 18.8502 117.65 18.8844 117.628 18.914C117.606 18.9436 117.578 18.968 117.545 18.9854C117.513 19.0029 117.477 19.0129 117.44 19.0147C117.068 19.1356 116.681 19.1997 116.29 19.2047C115.695 19.2354 115.108 19.0665 114.62 18.7247C114.409 18.5783 114.238 18.3822 114.121 18.1537C114.004 17.9252 113.945 17.6713 113.95 17.4147V15.0647C113.971 14.6163 113.821 14.1766 113.53 13.8347C113.39 13.6784 113.216 13.5552 113.023 13.4739C112.829 13.3927 112.62 13.3554 112.41 13.3647C112.221 13.3576 112.033 13.3935 111.859 13.4697C111.686 13.5459 111.533 13.6605 111.41 13.8047C111.146 14.1398 111.011 14.5586 111.03 14.9847V18.6747C111.03 18.8647 110.94 18.9647 110.75 18.9647H109.06C109.021 18.9696 108.981 18.9654 108.944 18.9526C108.906 18.9397 108.872 18.9185 108.844 18.8905C108.816 18.8626 108.795 18.8286 108.782 18.7912C108.769 18.7538 108.765 18.714 108.77 18.6747V15.0647C108.792 14.6212 108.653 14.1846 108.38 13.8347C108.258 13.6877 108.105 13.5694 107.932 13.4882C107.76 13.407 107.571 13.3648 107.38 13.3647C107.176 13.3565 106.973 13.3914 106.783 13.4673C106.593 13.5431 106.422 13.6581 106.28 13.8047C105.994 14.1291 105.847 14.5529 105.87 14.9847V18.6747C105.875 18.714 105.871 18.7538 105.858 18.7912C105.845 18.8286 105.824 18.8626 105.796 18.8905C105.768 18.9185 105.734 18.9397 105.697 18.9526C105.659 18.9654 105.619 18.9696 105.58 18.9647H103.95C103.76 18.9647 103.67 18.8647 103.67 18.6747V13.9647C103.682 13.8845 103.675 13.8027 103.649 13.7257C103.624 13.6488 103.581 13.5788 103.523 13.5215C103.466 13.4642 103.396 13.4211 103.319 13.3956C103.242 13.3701 103.16 13.363 103.08 13.3747H102.75C102.53 13.3747 102.42 13.2947 102.42 13.1347V11.9547C102.415 11.8817 102.435 11.8091 102.477 11.7491C102.519 11.689 102.58 11.6451 102.65 11.6247C102.996 11.499 103.362 11.438 103.73 11.4447C104.083 11.4146 104.438 11.485 104.753 11.6478C105.068 11.8106 105.33 12.0591 105.51 12.3647C105.847 12.045 106.247 11.7982 106.684 11.6399C107.121 11.4816 107.586 11.4152 108.05 11.4447C108.501 11.4227 108.95 11.5072 109.362 11.6914C109.774 11.8756 110.136 12.1542 110.42 12.5047C110.751 12.145 111.158 11.8634 111.611 11.68C112.064 11.4967 112.552 11.4164 113.04 11.4447C113.476 11.4243 113.912 11.4946 114.32 11.6513C114.728 11.8079 115.099 12.0474 115.41 12.3547C115.714 12.6752 115.949 13.0541 116.102 13.4684C116.255 13.8826 116.323 14.3237 116.3 14.7647V16.6947C116.3 17.0747 116.47 17.2647 116.79 17.2647C116.945 17.2719 117.1 17.2551 117.25 17.2147C117.457 17.2147 117.567 17.2947 117.58 17.4547L117.67 18.7047Z"
-										fill="currentColor"
-									/>
-									<path
-										d="M0.41 10.3847C1.14777 7.4194 2.85643 4.7861 5.2639 2.90424C7.6714 1.02234 10.6393 0 13.695 0C16.7507 0 19.7186 1.02234 22.1261 2.90424C24.5336 4.7861 26.2422 7.4194 26.98 10.3847H25.78C23.7557 10.3549 21.7729 10.9599 20.11 12.1147C20.014 12.1842 19.9138 12.2477 19.81 12.3047H19.67C19.5662 12.2477 19.466 12.1842 19.37 12.1147C17.6924 10.9866 15.7166 10.3841 13.695 10.3841C11.6734 10.3841 9.6976 10.9866 8.02 12.1147C7.924 12.1842 7.8238 12.2477 7.72 12.3047H7.58C7.4762 12.2477 7.376 12.1842 7.28 12.1147C5.6171 10.9599 3.6343 10.3549 1.61 10.3847H0.41ZM23.62 16.6547C24.236 16.175 24.9995 15.924 25.78 15.9447H27.39V12.7347H25.78C24.4052 12.7181 23.0619 13.146 21.95 13.9547C21.3243 14.416 20.5674 14.6649 19.79 14.6649C19.0126 14.6649 18.2557 14.416 17.63 13.9547C16.4899 13.1611 15.1341 12.7356 13.745 12.7356C12.3559 12.7356 11.0001 13.1611 9.86 13.9547C9.2343 14.416 8.4774 14.6649 7.7 14.6649C6.9226 14.6649 6.1657 14.416 5.54 13.9547C4.4144 13.1356 3.0518 12.7072 1.66 12.7347H0V15.9447H1.61C2.39051 15.924 3.154 16.175 3.77 16.6547C4.908 17.4489 6.2623 17.8747 7.65 17.8747C9.0377 17.8747 10.392 17.4489 11.53 16.6547C12.1468 16.1765 12.9097 15.9257 13.69 15.9447C14.4708 15.9223 15.2348 16.1735 15.85 16.6547C16.9901 17.4484 18.3459 17.8738 19.735 17.8738C21.1241 17.8738 22.4799 17.4484 23.62 16.6547ZM23.62 22.3947C24.236 21.915 24.9995 21.664 25.78 21.6847H27.39V18.4747H25.78C24.4052 18.4581 23.0619 18.886 21.95 19.6947C21.3243 20.156 20.5674 20.4049 19.79 20.4049C19.0126 20.4049 18.2557 20.156 17.63 19.6947C16.4899 18.9011 15.1341 18.4757 13.745 18.4757C12.3559 18.4757 11.0001 18.9011 9.86 19.6947C9.2343 20.156 8.4774 20.4049 7.7 20.4049C6.9226 20.4049 6.1657 20.156 5.54 19.6947C4.4144 18.8757 3.0518 18.4472 1.66 18.4747H0V21.6847H1.61C2.39051 21.664 3.154 21.915 3.77 22.3947C4.908 23.1889 6.2623 23.6147 7.65 23.6147C9.0377 23.6147 10.392 23.1889 11.53 22.3947C12.1468 21.9165 12.9097 21.6657 13.69 21.6847C14.4708 21.6623 15.2348 21.9135 15.85 22.3947C16.9901 23.1884 18.3459 23.6138 19.735 23.6138C21.1241 23.6138 22.4799 23.1884 23.62 22.3947Z"
-										fill="currentColor"
-									/>
-								</svg>
-							</div>
-
-							<p class="mx-auto mt-6 max-w-md text-center leading-relaxed">
-								070-603 95 82 kontakt@hagablanket.se Hagablänket Stenberga Sänsleviken 1 574 97
-								Vetlanda
-							</p>
-
-							<ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
-								<li>
-									<a class="text-gray-700 transition hover:text-gray-700/75" href="/"> Hem </a>
-								</li>
-
-								<li>
-									<a class="text-gray-700 transition hover:text-gray-700/75" href="/">
-										Uthyrning
-									</a>
-								</li>
-
-								<li>
-									<a class="text-gray-700 transition hover:text-gray-700/75" href="/"> Om oss </a>
-								</li>
-
-								<li>
-									<a class="text-gray-700 transition hover:text-gray-700/75" href="/">
-										Stenberga Missionsförsamling
-									</a>
-								</li>
-							</ul>
-
-							<ul class="mt-12 flex justify-center gap-6 md:gap-8">
-								<li>
-									<a
-										href="/"
-										rel="noreferrer"
-										target="_blank"
-										class="text-gray-700 transition hover:text-gray-700/75"
-									>
-										<span class="sr-only">Facebook</span>
-										<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-											<path
-												fill-rule="evenodd"
-												d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-												clip-rule="evenodd"
-											/>
-										</svg>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</footer>
-					<!-- End of Footer -->
-
-					<footer class="flex justify-center p-1">
-						<div>
-							<p class="text-sm">Copyright © 2023 Hagablänket Alla rättigheter förbehållna</p>
-						</div>
-					</footer>
+					<Footer />
 				</div>
 			</div>
 		</div>

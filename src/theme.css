@@ -153,15 +153,28 @@
   /* ⬅ #d0baa1 */
   --color-surface-400: 173 135 91;
   /* ⬅ #ad875b */
-  --color-surface-500: 220 220 220;
+  --color-surface-500: 179 165 148;
   /* ⬅ #8a5315 */
-  --color-surface-600: 238 238 238;
+  --color-surface-600: 212 203 194;
   /* ⬅ #7c4b13 */
-  --color-surface-700: 238 238 238;
+  --color-surface-700: 228 223 217;
   /* ⬅ #683e10 */
-  --color-surface-800: 238 238 238;
+  --color-surface-800: 233 229 224;
   /* ⬅ #53320d */
-  --color-surface-900: 238 238 238;
+  --color-surface-900: 239 236 232;
   /* ⬅ #44290a */
 
 }
+
+
+
+
+
+
+/* 
+--color-surface-900: 239 236 232; 
+--color-surface-800: 233 229 224; 
+--color-surface-700: 228 223 217; 
+--color-surface-600: 212 203 194;
+--color-surface-500: 179 165 148; 
+*/

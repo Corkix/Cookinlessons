@@ -85,10 +85,10 @@
 								></ListBoxItem
 							>
 							<ListBoxItem bind:group={comboboxValue} name="Skogslugnet" value="skoghus">
-								<a class="btn btn-sm text-lg hover:text-slate-950" href="/skoghus">Skogslunget</a>
+								<a class="btn btn-sm text-lg hover:text-slate-950" href="/skoghus">Skogslugnet</a>
 							</ListBoxItem>
 							<ListBoxItem bind:group={comboboxValue} name="Kontakt" value="kontakt">
-								<a class="btn btn-sm text-lg hover:text-slate-950" href="/uthyrning">Kontakt</a>
+								<a class="btn btn-sm text-lg hover:text-slate-950" href="/kontakt">Kontakt</a>
 							</ListBoxItem>
 						</ListBox>
 					</div>
