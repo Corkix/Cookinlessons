@@ -24,11 +24,15 @@
 			</li>
 
 			<li>
-				<a class="text-gray-700 transition hover:text-gray-700/75" href="/"> Uthyrning </a>
+				<a class="text-gray-700 transition hover:text-gray-700/75" href="/njutbart"> Njutbart </a>
 			</li>
 
 			<li>
-				<a class="text-gray-700 transition hover:text-gray-700/75" href="/"> Om oss </a>
+				<a class="text-gray-700 transition hover:text-gray-700/75" href="/omOss"> Om oss </a>
+			</li>
+
+			<li>
+				<a class="text-gray-700 transition hover:text-gray-700/75" href="/kontakt"> Kontakt </a>
 			</li>
 
 			<li>
