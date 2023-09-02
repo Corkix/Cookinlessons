@@ -12,22 +12,6 @@
 		'https://hagablanket.se/wp-content/uploads/2021/06/rakmacka-1.jpg'
 	];
 
-	function carouselLeft(): void {
-		const x =
-			elemCarousel.scrollLeft === 0
-				? elemCarousel.clientWidth * elemCarousel.childElementCount // loop
-				: elemCarousel.scrollLeft - elemCarousel.clientWidth; // step left
-		elemCarousel.scroll(x, 0);
-	}
-
-	function carouselRight(): void {
-		const x =
-			elemCarousel.scrollLeft === elemCarousel.scrollWidth - elemCarousel.clientWidth
-				? 0 // loop
-				: elemCarousel.scrollLeft + elemCarousel.clientWidth; // step right
-		elemCarousel.scroll(x, 0);
-	}
-
 	function carouselThumbnail(index: number) {
 		elemCarousel.scroll(elemCarousel.clientWidth * index, 0);
 	}
@@ -139,15 +123,63 @@
 
 					<Uthyrning />
 
-					<section class="p-4 flex-row">
-						<div class="card p-4 px-10">
-							Vill ni bara boka en dag eller kväll finns mer information under Endagsbesök. Har du
-							behov av vila och återhämtning kan du välja att läsa under Retreater/vila. I
-							Hagablänket finns också Kapellet. Det är en timmer-stuga med ett stort rum och ett
-							mindre samtalsrum som, så fort det blivit klart, kommer att kunna användas. Vårt
-							smultronställe är en plats med många möjligheter för gäster med olika behov. Under de
-							olika flikarna kan du se bilder och läsa mer om respektive boende.
+					<section>
+						<div class="lg:py-2 px-5 md:px-8 lg:px-72 p-2">
+							<div class="max-w-3xl py-4">
+								<h2 class="text-3xl font-bold sm:text-4xl">Omdömen</h2>
+							</div>
+							<article class="space-y-4">
+								<p>
+									”Ett unikt sommarboende, med en fantastisk hyresvärd. Lugnt, rofyllt, härlig
+									solnedgång både från stranden och huset. Trevlig liten badstrand, lämplig för
+									såväl barn som vuxna. Måste upplevas!”
+								</p>
+
+								<p>
+									“Hagablänket I a wonderful place that we already miss about a week after. The
+									combination of the grand, beautiful and well equipped houses with plenty of space,
+									and the quite simply glorious nature surrounding both houses makes this a great
+									catch to book. The beauty of Småland, the privacy of the area, whether you book
+									both houses or only one, you´ll have apace and privacy both indoors and outdoors.
+									The owners are very helpful with any questions you might have, nothing seems to be
+									a problem. Last but very much not least: The bed are great!”
+								</p>
+
+								<p>
+									”En mycket varm och genuin plats och atmosfär. Otroligt vackert beläget i skogen,
+									vid sjön nedanför. Inredningen är mycket smakfull och har en personlig utformning
+									som gör att man känner sig hemma och välkommen. Rekommenderar Hagablänket för
+									flera aktiviteter som för din familj eller bara för att vara i denna fantastiska
+									miljö av lugn och stressfri avskildhet.”
+								</p>
+								<p>
+									“We had a simply wonderful week in Sjömagasinet. The surrounding glorious nature,
+									the space in and outside of the house and the comfortably designed interiors were
+									all so well suited for our group of couples and friends. The layout is well
+									thought out with a big living-room and kitchen, made for big dinners and long
+									conversations. The outside area is comfortable and beautiful with plenty of room
+									and seating for big parties or smaller meals. A short walk takes you to the lake
+									where we spent many hours just taking in the view. There is both a beach shore
+									suitable for walking into the water as well as a pier with a sturdy ladder. We had
+									rented the other house aswell but there was enough distance to enjoy privacy if
+									only Sjömagasinet had been rented.”
+								</p>
+
+								<p>
+									“Hagablänket is an ideal home for a family vacation, a family reunion, or even a
+									club or business retreat. The spacious home is beautifully decorated and is as
+									luxurious and pristine as one could ask. The wonderful and gracious owners of this
+									vacation home, have spared no expense in making their guests feel comfortable and
+									pampered. With the adjacent lake on the property there is also the opportunity for
+									fishing, swimming, boating and lakeside barbeques. We highly recommend this
+									property and assure you that you will love it and never want to leave!”
+								</p>
+							</article>
 						</div>
+					</section>
+
+					<section class="p-4 flex-row">
+						<div class="card p-4 px-10" />
 					</section>
 					<Footer />
 				</div>

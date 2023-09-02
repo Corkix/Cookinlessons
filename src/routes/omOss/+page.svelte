@@ -1,35 +1,26 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
 	import { TabGroup, Tab } from '@skeletonlabs/skeleton';
+	import swish from '$lib/images/File.jpg';
 
 	let tabSet: number = 0;
 
-	let elemCarousel: HTMLDivElement;
-	const karusellIds = [
-		'https://hagablanket.se/wp-content/uploads/2021/05/skogslugnet1.jpg',
-		'https://hagablanket.se/bilder/skogslugnet2',
-		'https://hagablanket.se/bilder/skogslugnet3',
-		'https://hagablanket.se/bilder/skogslugnet4',
-		'https://hagablanket.se/bilder/skogslugnet5',
-		'https://hagablanket.se/bilder/skogslugnet6'
-	];
-
-	const bildGalleriIds = [
+	const bildGalleriVisionIds = [
 		'https://hagablanket.se/bilder/skogslugnet7',
 		'https://hagablanket.se/bilder/skogslugnet8',
 		'https://hagablanket.se/bilder/skogslugnet9'
 	];
-
-	function carouselThumbnail(index: number) {
-		elemCarousel.scroll(elemCarousel.clientWidth * index, 0);
-	}
+	const bildGalleriKortaIds = [
+		'https://hagablanket.se/bilder/stentrappa.jpeg',
+		'https://hagablanket.se/bilder/IMG_20180709_213610.jpeg',
+		'https://hagablanket.se/bilder/skogslugnet4.jpg'
+	];
+	const bildGalleriLangaIds = [
+		'https://hagablanket.se/bilder/Dagenartikel-Hagablanket_Sida_1.jpg',
+		'https://hagablanket.se/bilder/stenarvidsjon.jpeg',
+		'https://hagablanket.se/bilder/Dagenartikel-Hagablanket_Sida_2.jpg'
+	];
 </script>
-
-<!-- <ol class="breadcrumb">
-	<li class="crumb">Home</li>
-	<li class="crumb-separator" aria-hidden>/</li>
-</ol>
- -->
 
 <html lang="en">
 	<head>
@@ -58,7 +49,7 @@
 							<div class="grid sm:grid-flow-row md:grid-flow-row lg:grid-flow-col">
 								<div class="lg:py-2 p-2">
 									<div class="max-w-3xl py-4">
-										<h2 class="text-3xl font-bold sm:text-4xl">Om oss</h2>
+										<h1 class="text-3xl font-bold sm:text-4xl">Om oss</h1>
 									</div>
 									<article class="space-y-4">
 										<p>
@@ -139,14 +130,14 @@
 						<div class="lg:py-2 lg:mx-2 lg:px-20 p-2">
 							<TabGroup justify="justify-center">
 								<Tab bind:group={tabSet} name="tab1" value={0}>Visionen</Tab>
-								<Tab bind:group={tabSet} name="tab2" value={1}>Den långa berättelsen</Tab>
-								<Tab bind:group={tabSet} name="tab3" value={2}>Gästboken</Tab>
-								<Tab bind:group={tabSet} name="tab4" value={3}>Omdömen</Tab>
+								<Tab bind:group={tabSet} name="tab2" value={1}>Den korta berättelsen</Tab>
+								<Tab bind:group={tabSet} name="tab3" value={2}>Den långa berättelsen</Tab>
+
 								<!-- Tab Panels --->
 								<svelte:fragment slot="panel">
 									{#if tabSet === 0}
 										<section class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
-											{#each bildGalleriIds as bildGalleriId}
+											{#each bildGalleriVisionIds as bildGalleriId}
 												<div>
 													<img
 														class="snap-center w-[1024px] rounded-container-token"
@@ -207,7 +198,70 @@
 										</div>
 									{:else if tabSet === 1}
 										<section class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
-											{#each bildGalleriIds as bildGalleriId}
+											{#each bildGalleriKortaIds as bildGalleriId}
+												<div>
+													<img
+														class="snap-center w-[1024px] rounded-container-token"
+														src={bildGalleriId}
+														alt={bildGalleriId}
+														loading="lazy"
+													/>
+												</div>
+											{/each}
+										</section>
+										<div class="gap-2">
+											<div class="flex p-2 lg:items-center lg:justify-between">
+												<div class="flex-1">
+													<section>
+														<div class="max-w-3xl py-4">
+															<h2 class="text-3xl font-bold sm:text-4xl">Den korta berättelsen</h2>
+														</div>
+														<article class="space-y-4">
+															<p>
+																Det är nästan omöjligt att sammanfatta historien om Hagablänket i en
+																kort berättelse. Det har hänt så otroligt mycket märkliga grejer och
+																mirakler de senaste åren att vi omöjligt kan få med allt på några
+																rader. Utan Guds hjälp och tydliga instruktioner hade inte något av
+																husen i Hagablänket kommit till och eftersom många människor redan
+																fått glädje av platsen så är vi glada att vi mot allt sunt förnuft
+																bildligt talat, vågade ta klivet över relingen och börja gå på
+																vatten.
+															</p>
+
+															<p>
+																Fram till början av 2016 var det bara skog och vildmark där
+																Hagablänket nu ligger. Det enda som fanns var vindskyddet vid sjön,
+																badplatsen och en liten skogsväg som ledde dit. Bara ett år senare
+																hade skogen tagits ner, vatten sprungit fram ur berget, elektricitet
+																grävts ner en sträcka på närmare en kilometer i stenig mark, vägar
+																byggts, tillstånd sökts och det första huset, Skogslugnet,
+																mirakulöst kommit på plats.
+															</p>
+															<p>
+																2018 var byggnaden helt klar och luften gick nästan ur oss efter en
+																mycket intensiv byggperiod. Vad vi inte visste då var att vi två år
+																senare skulle ha byggt ytterligare ett stort hus och vara på god väg
+																med den tredje byggnaden i Hagablänket, denna gång helt utan några
+																egna ekonomiska medel. Så trots en mänskligt sett helt omöjlig
+																situation fortsätter Gud att uppmana oss att färdigställa platsen.
+																Varje steg vi tar är ett steg i tro och mänsklig galenskap. Ganska
+																ofta frågar vi oss hur vi hamnade här men hittills har Gud visat oss
+																ett steg i taget, även om vi fortfarande inte riktigt vet syftet med
+																denna mycket märkliga resa.
+															</p>
+															<p>
+																Kommer du på besök berättar vi gärna mer och en vacker dag skriver
+																vi nog en bok. Tills dess kan du följa oss på vår facebooksida
+																Hagablänket.
+															</p>
+														</article>
+													</section>
+												</div>
+											</div>
+										</div>
+									{:else if tabSet === 2}
+										<section class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+											{#each bildGalleriLangaIds as bildGalleriId}
 												<div>
 													<img
 														class="snap-center w-[1024px] rounded-container-token"
@@ -404,144 +458,6 @@
 												</div>
 											</div>
 										</div>
-									{:else if tabSet === 2}
-										<section class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
-											{#each bildGalleriIds as bildGalleriId}
-												<div>
-													<img
-														class="snap-center w-[1024px] rounded-container-token"
-														src={bildGalleriId}
-														alt={bildGalleriId}
-														loading="lazy"
-													/>
-												</div>
-											{/each}
-										</section>
-										<section>
-											<div class="flex">
-												<div class="place-content-center sm:p-8">
-													<div class=" text-center">
-														<header>
-															<h2 class="text-xl font-bold sm:text-3xl">Gästboken</h2>
-														</header>
-
-														<article class="space-y-4 pt-4">
-															<p>
-																”Så tacksamma för att få bo några dygn i denna vackra och fridfulla
-																miljö!”
-															</p>
-
-															<p>
-																”Att stiga in i huset en mörk novemberkväll, öppna dörren och genast
-																känna sig hemma, det är värdefullt!”
-															</p>
-															<p>
-																”Tänk att få komma till detta palats på en otroligt vacker plats!”
-															</p>
-															<p>
-																”Så glada att vi fick ta del av er fantastiska hushistoria och
-																gästfrihet… och att få upplevt ett vackert och häftigt hus.”
-															</p>
-															<p>”Underbart, harmoniskt och fridfullt!”</p>
-															<p>
-																”Underbart fint hus med härliga rum. Fantastiskt fin berättelse om
-																Guds outsägliga vägar.”
-															</p>
-
-															<p>
-																”Imponerad av all kreativitet och skaparförmåga. Önskar er all
-																lycka!”
-															</p>
-
-															<p>
-																”Så spännande att få höra tänket, bakom ritningar och grejer i
-																Hagablänket. En vevgramofon, ett par skidor och underkläder, en
-																vedspis, en dubbeldörr och galgar av läder. Här är en plats för
-																umgänge och vila. Tack för ikväll – nu måste vi kila!”
-															</p>
-														</article>
-													</div>
-												</div>
-											</div>
-										</section>
-									{:else if tabSet === 3}
-										<section class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
-											{#each bildGalleriIds as bildGalleriId}
-												<div>
-													<img
-														class="snap-center w-[1024px] rounded-container-token"
-														src={bildGalleriId}
-														alt={bildGalleriId}
-														loading="lazy"
-													/>
-												</div>
-											{/each}
-										</section>
-										<section>
-											<div class="flex">
-												<div class="place-content-center sm:p-8">
-													<div class=" text-center">
-														<header>
-															<h2 class="text-xl font-bold sm:text-3xl">Omdömen</h2>
-														</header>
-
-														<article class="space-y-8 pt-4">
-															<p>
-																”Ett unikt sommarboende, med en fantastisk hyresvärd. Lugnt,
-																rofyllt, härlig solnedgång både från stranden och huset. Trevlig
-																liten badstrand, lämplig för såväl barn som vuxna. Måste upplevas!”
-															</p>
-
-															<p>
-																“Hagablänket I a wonderful place that we already miss about a week
-																after. The combination of the grand, beautiful and well equipped
-																houses with plenty of space, and the quite simply glorious nature
-																surrounding both houses makes this a great catch to book. The beauty
-																of Småland, the privacy of the area, whether you book both houses or
-																only one, you´ll have apace and privacy both indoors and outdoors.
-																The owners are very helpful with any questions you might have,
-																nothing seems to be a problem. Last but very much not least: The bed
-																are great!”
-															</p>
-															<p>
-																”En mycket varm och genuin plats och atmosfär. Otroligt vackert
-																beläget i skogen, vid sjön nedanför. Inredningen är mycket smakfull
-																och har en personlig utformning som gör att man känner sig hemma och
-																välkommen. Rekommenderar Hagablänket för flera aktiviteter som för
-																din familj eller bara för att vara i denna fantastiska miljö av lugn
-																och stressfri avskildhet.”
-															</p>
-															<p>
-																“We had a simply wonderful week in Sjömagasinet. The surrounding
-																glorious nature, the space in and outside of the house and the
-																comfortably designed interiors were all so well suited for our group
-																of couples and friends. The layout is well thought out with a big
-																living-room and kitchen, made for big dinners and long
-																conversations. The outside area is comfortable and beautiful with
-																plenty of room and seating for big parties or smaller meals. A short
-																walk takes you to the lake where we spent many hours just taking in
-																the view. There is both a beach shore suitable for walking into the
-																water as well as a pier with a sturdy ladder. We had rented the
-																other house aswell but there was enough distance to enjoy privacy if
-																only Sjömagasinet had been rented.”
-															</p>
-
-															<p>
-																“Hagablänket is an ideal home for a family vacation, a family
-																reunion, or even a club or business retreat. The spacious home is
-																beautifully decorated and is as luxurious and pristine as one could
-																ask. The wonderful and gracious owners of this vacation home, have
-																spared no expense in making their guests feel comfortable and
-																pampered. With the adjacent lake on the property there is also the
-																opportunity for fishing, swimming, boating and lakeside barbeques.
-																We highly recommend this property and assure you that you will love
-																it and never want to leave!”
-															</p>
-														</article>
-													</div>
-												</div>
-											</div>
-										</section>
 									{/if}
 								</svelte:fragment>
 							</TabGroup>

@@ -1,59 +1,69 @@
 <section>
-	<div class="card p-4 px-10">
-		<div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
-			<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
-				<div class="grid p-6 rounded place-content-center sm:p-8">
-					<div class="max-w-md mx-auto text-center lg:text-left">
-						<header>
-							<h2 class="text-xl font-bold sm:text-3xl">Uthyrning</h2>
+	<div class="max-w-screen-xl px-4 py-6 mx-auto sm:px-6 sm:py-12 lg:px-8">
+		<header class="text-center">
+			<h2 class="text-xl font-bold sm:text-3xl">Uthyrning</h2>
 
-							<p class="mt-4">
-								Hos oss kan du sova lyxigt i sköna sängar mellan vita lakan eller enkelt i vårt
-								mysiga vindskydd vid sjökanten. Våra två hus, Skogslugnet och Sjömagasinet, kan
-								hyras separat eller tillsammans med en total kapacitet för upp till 25-30 gäster.
-							</p>
-						</header>
-						<button
-							type="button"
-							class="btn variant-filled-primary px-12 py-3 mt-8 text-md font-medium"
-						>
-							Läs mer
-						</button>
+			<p class="max-w-md mx-auto mt-4">
+				Hos oss kan du sova lyxigt i sköna sängar mellan vita lakan eller enkelt i vårt mysiga
+				vindskydd vid sjökanten. Våra två hus, Skogslugnet och Sjömagasinet, kan hyras separat eller
+				tillsammans med en total kapacitet för upp till 25-30 gäster.
+			</p>
+		</header>
+
+		<ul class="grid grid-cols-1 gap-4 mt-8 lg:grid-cols-2">
+			<li>
+				<a href="/uthyrning/sjohus" class="relative block group">
+					<img
+						src="https://hagablanket.se/bilder/sjomagasinet.jpg"
+						alt=""
+						class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
+					/>
+
+					<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
+						<h3 class="text-xl font-medium text-white">Sjömagasinet</h3>
 					</div>
-				</div>
+				</a>
+			</li>
 
-				<div class="lg:col-span-2 lg:py-8">
-					<ul class="grid grid-cols-2 gap-4">
-						<li>
-							<a href="/sjohus" class="block group">
-								<img
-									src="https://hagablanket.se/bilder/sjomagasinet.jpg"
-									alt=""
-									class="object-cover w-full rounded aspect-square"
-								/>
+			<li>
+				<a href="/uthyrning/skoghus" class="relative block group">
+					<img
+						src="https://hagablanket.se/wp-content/uploads/2021/05/skogslugnet1.jpg"
+						alt=""
+						class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
+					/>
 
-								<div class="mt-3">
-									<h3 class="font-medium text-gray-900">Sjömagasinet</h3>
-								</div>
-							</a>
-						</li>
+					<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
+						<h3 class="text-xl font-medium text-white">Skogslugnet</h3>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/uthyrning/kapellet" class="relative block group">
+					<img
+						src="https://hagablanket.se/bilder/kapelletivinterskrud.jpeg"
+						alt=""
+						class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
+					/>
 
-						<li>
-							<a href="/skoghus" class="block group">
-								<img
-									src="https://hagablanket.se/wp-content/uploads/2021/05/skogslugnet1.jpg"
-									alt=""
-									class="object-cover w-full rounded aspect-square"
-								/>
+					<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
+						<h3 class="text-xl font-medium text-white">Kapellet</h3>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/uthyrning/vindskyddet" class="relative block group">
+					<img
+						src="https://hagablanket.se/bilder/vindskyddet1.jpeg"
+						alt=""
+						class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
+					/>
 
-								<div class="mt-3">
-									<h3 class="font-medium text-gray-900">Skogslugnet</h3>
-								</div>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+					<div class="absolute inset-0 flex flex-col items-start justify-end p-6">
+						<h3 class="text-xl font-medium text-white">Vindskyddet</h3>
+					</div>
+				</a>
+			</li>
+		</ul>
 	</div>
 </section>

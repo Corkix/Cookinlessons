@@ -75,7 +75,8 @@
 			<svelte:fragment slot="trail">
 				<div class="max-sm:hidden">
 					<a class="btn btn-sm text-lg" href="/">Hem</a>
-					<button class="btn text-lg justify-between" use:popup={popupCombobox}>
+					<a class="btn btn-sm text-lg" href="/uthyrning">Uthyrning</a>
+					<!-- <button class="btn text-lg justify-between" use:popup={popupCombobox}>
 						<span class="capitalize">{comboboxValue ?? 'Uthyrning'}</span>
 					</button>
 					<div class="card w-40 shadow-xl py-2" data-popup="popupCombobox">
@@ -91,7 +92,7 @@
 								<a class="btn btn-sm text-lg hover:text-slate-950" href="/kontakt">Kontakt</a>
 							</ListBoxItem>
 						</ListBox>
-					</div>
+					</div> -->
 
 					<a class="btn btn-sm text-lg" href="/njutbart">Njutbart</a>
 					<a class="btn btn-sm text-lg" href="/omOss">Om oss</a>
